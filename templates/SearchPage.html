@@ -1,0 +1,10 @@
+
+        <form action="{{url_for('showsearch')}}" method="POST" >
+            <div>
+              <label>Type the pet that you wish to search:</label>
+              <input  id="searchPetCat" name="searchPetCat" type="text">
+              <button type="submit" name="action">Search</button>
+            </div>
+        </form>
+        
+         <a href="{{url_for('add_adv')}}" >Add Advertisment</a><br>
