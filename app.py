@@ -25,9 +25,12 @@ def showsearch():
 
 @app.route('/add_adv')
 def add_adv():
-    return render_template("test.html")
-
-
+    return render_template("add_adv.html", pet=mongo.db.pet.find())
+    
+@app.route('/insert_adv/', methods=['POST'])
+def insert_adv():
+    mongo.db.pet.insert_one( {"petName":request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

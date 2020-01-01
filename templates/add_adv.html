@@ -1,0 +1,19 @@
+ <form action="{{ url_for('insert_adv') }}" method="POST" >
+     <div>
+        <label>Pet Name</label>
+        <input id="petName" name="petName" type="text"><br>
+        <label>Pet Category</label>
+        <input id="petCat" name="petCat" type="text"><br>
+        <label>Gender</label>
+        <input id="gender" name="gender" type="text"><br>
+        <label>Color</label>
+        <input id="color" name="color" type="text"><br>
+        <label>Age</label>
+        <input id="age" name="age" type="text"><br>
+        <label>Description</label>
+        <input id="description" name="description" type="text"><br>
+    </div>
+    <div>
+        <button type="submit" name="action">Add Advertisment</button>
+    </div>
+ </form>
