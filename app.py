@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 # Connection to MongoDB
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'pet_adopt'
-app.config["MONGO_URI"] = os_environ.get('MONGO_URI')
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
