@@ -1,10 +1,33 @@
-
+        <a href="{{url_for('add_adv')}}" >Add Advertisment</a>&nbsp &nbsp
+        <a href="{{url_for('login')}}" >Login</a><br><br>
+        
         <form action="{{url_for('showsearch')}}" method="POST" >
             <div>
               <label>Type the pet that you wish to search:</label>
               <input  id="searchPetCat" name="searchPetCat" type="text">
-              <button type="submit" name="action">Search</button>
+              <button type="submit" name="action">Search</button><br><br>
             </div>
-        </form>
+            
+            <div>
+            {% for num in pet %}
+            Advetisement ID: {{num._id}} <br>
+            Pet Name: {{num.petName}} <br>
+            Pet Category: {{num.petCat}} <br>
+            Gender: {{num.gender}} <br>
+            Color: {{num.color}} <br>
+            Age: {{num.age}} <br>
+            Description: {{num.description}}<br><br>
+            =========================
+                {% for row in user %}
+                    {% if row.advID == num._id %}
+                        Posted by: {{ row.userName }}<br>
+                        Email: {{ row.userEmail }}<br>
+                        Contact: {{ row.userContact }}<br><br>
+                    {%endif %}
+                {% endfor %}   
+            
+            =======================
+            {% endfor %}
+            </div>
         
-         <a href="{{url_for('add_adv')}}" >Add Advertisment</a><br>
+        </form>

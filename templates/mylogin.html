@@ -3,4 +3,5 @@
     Pet Name: {{num.userName}} <br>
     Pet Category: {{num.userEmail}} <br>
     Gender: {{num.userContact}} <br><br>
+    <a href="{{url_for('delete_adv', user_id=num._id)}}" >Deletes</a>
 {% endfor %}

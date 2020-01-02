@@ -1,17 +1,19 @@
 {% for num in pet %}
-    Advetisement ID: {{num.advID}} <br>
+    Advetisement ID: {{num._id}} <br>
     Pet Name: {{num.petName}} <br>
     Pet Category: {{num.petCat}} <br>
     Gender: {{num.gender}} <br>
     Color: {{num.color}} <br>
     Age: {{num.age}} <br>
-    Description: {{num.description}}<br>
-    
+    Description: {{num.description}}<br><br>
+    =========================
     {% for row in user %}
-        {% if row.advID == num.advID %}
-            Posted by:  {{ row.userName }}<br>
+        {% if row.advID == num._id %}
+            Posted by: {{ row.userName }}<br>
             Email: {{ row.userEmail }}<br>
             Contact: {{ row.userContact }}<br><br>
-         {%endif %}
+        {%endif %}
     {% endfor %}   
+    
+    =======================
 {% endfor %}
