@@ -49,7 +49,16 @@ def mylogin():
     mydata = {"userName":  mykeyword}
     myuser=mongo.db.user.find(mydata)
     return render_template("mylogin.html", user=myuser)
+
+@app.route('/delete_adv/<user_id>')
+def delete_adv(user_id):
+    return render_template("deleteAdv.html",user_id=user_id) 
     
+@app.route('/delete_adv2/', methods=['POST'])
+def delete_adv2():
+    adv_id=request.form.get('myid')
+    mongo.db.user.remove({'_id': ObjectId(adv_id)})
+    return redirect(url_for('mysearch'))
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
