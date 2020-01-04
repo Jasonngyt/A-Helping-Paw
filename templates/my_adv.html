@@ -1,0 +1,42 @@
+ <form>
+     <div>
+         {% for num in pet%}
+         <label>Advertisement ID</label>
+          <input id="adv_id" name="adv_id" type="text" value={{num._id}} ><br>
+          <label>Pet Name</label>
+          <input id="petName" name="petName" type="text" value={{num.petName}} ><br
+          <label>Gender</label>
+          <input id="gender" name="gender" type="text" value={{num.gender}} ><br>
+          <label>Color</label>
+          <input id="color" name="color" type="text" value={{num.color}} ><br>
+          <label>Age</label>
+          <input id="age" name="age" type="text" value={{num.age}} ><br>
+          <label>Description</label>
+          <input id="description" name="deacription" type="text" value={{num.deacription}} ><br>
+     
+          <div>
+            <button type="submit" name="action">Update Advertisement</button>
+            <a href="{{url_for('delete_adv', adv_id=num._id)}}" >Delete</a>&nbsp &nbsp
+          </div>
+          {% endfor %}
+     </div>         
+    
+ </form>
+
+
+{% for num in pet %}
+    Advertisement ID: {{num._id}} <br>
+    Pet Name: {{num.petName}} <br>
+    Pet Category: {{num.petCat}} <br>
+    Gender: {{num.gender}} <br>
+    Color: {{num.color}} <br>
+    Age: {{num.age}} <br>
+    Description: {{num.description}}<br>
+    {% for row in user %}
+        {% if num.user_id == row._id %}
+        Posted by: {{ row.userName }}<br>
+        Email: {{ row.userEmail }}<br>
+        Contact: {{ row.userContact }}<br><br>
+        {% endif %}
+    {% endfor %}   
+{% endfor %}
