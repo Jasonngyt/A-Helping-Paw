@@ -59,19 +59,24 @@ def mylogin():
     myuser=mongo.db.user.find(mydata)
     return render_template("mylogin.html", user=myuser)
     
-@app.route('/update_adv/', methods=['POST'])
-def update_adv():
-    query = {'_id':ObjectId(request.form.get('userid'))}
+@app.route('/update_user/', methods=['POST'])
+def update_user():
+    query = {'_id':ObjectId(request.form.get('user_id'))}
     mongo.db.user.update(query, {"advID":request.form.get('myid'), "userName": request.form.get('myName'), "userEmail": request.form.get('myEmail'), "userContact": request.form.get('myContact')} )
     return redirect(url_for('mysearch'))
 
-@app.route('/delete_adv/<user_id>')
-def delete_adv(user_id):
-    return render_template("deleteAdv.html",user_id=user_id) 
+@app.route('/my_adv/<user_id>')
+def my_adv(user_id):
+    mypet=mongo.db.pet.find({"user_id":  ObjectId(user_id)})
+    return render_template("my_adv.html", pet=mypet)  
+    
+@app.route('/delete_adv/<adv_id>')
+def delete_adv(adv_id):
+    return render_template("deleteAdv.html",adv_id=adv_id) 
     
 @app.route('/delete_adv2/', methods=['POST'])
-def delete_adv2():
-    adv_id=request.form.get('myid')
+def delete_adv2(): 
+    adv_id=request.form.get('adv_id')
     mongo.db.user.remove({'_id': ObjectId(adv_id)})
     return redirect(url_for('mysearch'))
     
