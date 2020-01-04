@@ -1,0 +1,13 @@
+ <form action="{{ url_for('insert_user') }}" method="POST" >
+     <div>
+        <label>User Name</label>
+        <input id="userName" name="userName" type="text"><br>
+        <label>User Email</label>
+        <input id="userEmail" name="userEmail" type="text"><br>
+        <label>User Contact</label>
+        <input id="userContact" name="userContact" type="text"><br>
+    </div>
+    <div>
+        <button type="submit" name="action">Add User</button>
+    </div>
+ </form>
