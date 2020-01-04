@@ -17,7 +17,7 @@ mongo = PyMongo(app)
 # Search for the advertisment
 @app.route('/mysearch')
 def mysearch():
-    return render_template("SearchPage.html", pet=mongo.db.pet.find())
+    return render_template("SearchPage.html", pet=mongo.db.pet.find(), user=list(mongo.db.user.find()))
 
 # Display the search Result
 @app.route('/showsearch', methods=['POST'])
@@ -26,18 +26,18 @@ def showsearch():
     mydata = {"petCat":  mykeyword}
     mypet=mongo.db.pet.find(mydata)
     myuser=mongo.db.user.find()
-    return render_template("searchResult.html", pet=mypet,user=myuser)  
+    return render_template("searchResult.html", pet=mypet,user=list(myuser))  
 
 # Form for user to key in new advertisment
 @app.route('/add_adv')
 def add_adv():
-    return render_template("add_adv.html", pet=mongo.db.pet.find())
+    return render_template("add_user.html", pet=mongo.db.user.find())
 
 # Post the information to MongoDB database
 @app.route('/insert_adv/', methods=['POST'])
 def insert_adv():
-    mongo.db.pet.insert_one( {"petName":request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
-    return redirect(url_for('mysearch'))
+    mongo.db.user.insert_one({"userName":request.form.get('userName'), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
+    my_db=mongo.db.pet.find({"petName":request.form.get('userEmail')})
 
 @app.route('/login')
 def login():
@@ -49,6 +49,12 @@ def mylogin():
     mydata = {"userName":  mykeyword}
     myuser=mongo.db.user.find(mydata)
     return render_template("mylogin.html", user=myuser)
+    
+@app.route('/update_adv/', methods=['POST'])
+def update_adv():
+    query = {'_id':ObjectId(request.form.get('userid'))}
+    mongo.db.user.update(query, {"advID":request.form.get('myid'), "userName": request.form.get('myName'), "userEmail": request.form.get('myEmail'), "userContact": request.form.get('myContact')} )
+    return redirect(url_for('mysearch'))
 
 @app.route('/delete_adv/<user_id>')
 def delete_adv(user_id):

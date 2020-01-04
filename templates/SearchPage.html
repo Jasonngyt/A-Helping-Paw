@@ -17,16 +17,13 @@
             Color: {{num.color}} <br>
             Age: {{num.age}} <br>
             Description: {{num.description}}<br><br>
-            =========================
-                {% for row in user %}
-                    {% if row.advID == num._id %}
+                     {% for row in user %}
+                    {% if row._id == num.user_id %}
                         Posted by: {{ row.userName }}<br>
                         Email: {{ row.userEmail }}<br>
                         Contact: {{ row.userContact }}<br><br>
                     {%endif %}
                 {% endfor %}   
-            
-            =======================
             {% endfor %}
             </div>
         
