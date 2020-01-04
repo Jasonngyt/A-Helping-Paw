@@ -29,15 +29,24 @@ def showsearch():
     return render_template("searchResult.html", pet=mypet,user=list(myuser))  
 
 # Form for user to key in new advertisment
-@app.route('/add_adv')
-def add_adv():
+@app.route('/add_user')
+def add_user():
     return render_template("add_user.html", pet=mongo.db.user.find())
 
 # Post the information to MongoDB database
+@app.route('/insert_user/', methods=['POST'])
+def insert_user():
+    mongo.db.user.insert_one({"userName":request.form.get(ObjectId('userName')), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
+    return redirect(url_for('mysearch'))
+
+@app.route('/add_adv/<user_id>')
+def add_adv(user_id):
+    return render_template("add_adv.html",user_id=user_id) 
+
 @app.route('/insert_adv/', methods=['POST'])
 def insert_adv():
-    mongo.db.user.insert_one({"userName":request.form.get('userName'), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
-    my_db=mongo.db.pet.find({"petName":request.form.get('userEmail')})
+    mongo.db.pet.insert_one({"user_id":request.form.get('userID'), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
+    return redirect(url_for('mysearch'))
 
 @app.route('/login')
 def login():

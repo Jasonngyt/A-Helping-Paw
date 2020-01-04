@@ -1,5 +1,7 @@
- <form action="{{ url_for('insert_adv') }}" method="POST" >
+ <form action="{{ url_for('insert_adv') }}" method="POST">
      <div>
+        <label>User ID</label>
+        <input id="userID" name="userID" type="text" value={{user_id}}><br>
         <label>Pet Name</label>
         <input id="petName" name="petName" type="text"><br>
         <label>Pet Category</label>

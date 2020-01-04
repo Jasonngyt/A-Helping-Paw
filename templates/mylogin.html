@@ -1,7 +1,21 @@
-{% for num in user%}
-    Advetisement ID: {{num.advID}} <br>
-    Pet Name: {{num.userName}} <br>
-    Pet Category: {{num.userEmail}} <br>
-    Gender: {{num.userContact}} <br><br>
-    <a href="{{url_for('delete_adv', user_id=num._id)}}" >Deletes</a>
-{% endfor %}
+ <form action="{{url_for('update_adv')}}" method="POST">
+     <div>
+         {% for num in user%}
+         <label>User ID</label>
+          <input id="userid" name="userid" type="text" value={{num._id}} ><br>
+          <label>User Name</label>
+          <input id="myName" name="myName" type="text" value={{num.userName}} ><br
+          <label>User Email</label>
+          <input id="myEmail" name="myEmail" type="text" value={{num.userEmail}} ><br>
+          <label>User Contact</label>
+          <input id="myContact" name="myContact" type="text" value={{num.userContact}} ><br>
+     
+          <div>
+            <button type="submit" name="action">Update</button>
+            <a href="{{url_for('delete_adv', user_id=num._id)}}" >Delete</a>&nbsp &nbsp
+            <a href="{{url_for('add_adv', user_id=num._id)}}" >Add Advertisement</a>
+          </div>
+          {% endfor %}
+     </div>         
+    
+ </form>
