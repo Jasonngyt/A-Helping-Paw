@@ -1,10 +1,10 @@
- <form>
+ <form action="{{url_for('update_adv')}}" method="POST">
      <div>
          {% for num in pet%}
-         <label>Advertisement ID</label>
+          <label>Advertisement ID</label>
           <input id="adv_id" name="adv_id" type="text" value={{num._id}} ><br>
           <label>Pet Name</label>
-          <input id="petName" name="petName" type="text" value={{num.petName}} ><br
+          <input id="petName" name="petName" type="text" value={{num.petName}} ><br>
           <label>Gender</label>
           <input id="gender" name="gender" type="text" value={{num.gender}} ><br>
           <label>Color</label>
@@ -12,7 +12,7 @@
           <label>Age</label>
           <input id="age" name="age" type="text" value={{num.age}} ><br>
           <label>Description</label>
-          <input id="description" name="deacription" type="text" value={{num.deacription}} ><br>
+          <input id="description" name="description" type="text" value={{num.description}} ><br>
      
           <div>
             <button type="submit" name="action">Update Advertisement</button>
