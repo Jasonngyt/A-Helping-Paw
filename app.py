@@ -28,15 +28,15 @@ def showsearch():
     myuser=mongo.db.user.find()
     return render_template("searchResult.html", pet=mypet,user=list(myuser))  
 
-# Form for user to key in new advertisment
+# Form for user to sign up user account
 @app.route('/add_user')
 def add_user():
     return render_template("add_user.html", pet=mongo.db.user.find())
 
-# Post the information to MongoDB database
+# Insert user information to MongoDB database
 @app.route('/insert_user/', methods=['POST'])
 def insert_user():
-    mongo.db.user.insert_one({"userName":request.form.get(ObjectId('userName')), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
+    mongo.db.user.insert_one({"userName":request.form.get('userName'), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
     return redirect(url_for('mysearch'))
 
 @app.route('/add_adv/<user_id>')
@@ -45,7 +45,7 @@ def add_adv(user_id):
 
 @app.route('/insert_adv/', methods=['POST'])
 def insert_adv():
-    mongo.db.pet.insert_one({"user_id":request.form.get('userID'), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
+    mongo.db.pet.insert_one({"user_id": ObjectId(request.form.get('userID')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
     return redirect(url_for('mysearch'))
 
 @app.route('/login')
@@ -62,7 +62,7 @@ def mylogin():
 @app.route('/update_user/', methods=['POST'])
 def update_user():
     query = {'_id':ObjectId(request.form.get('user_id'))}
-    mongo.db.user.update(query, {"advID":request.form.get('myid'), "userName": request.form.get('myName'), "userEmail": request.form.get('myEmail'), "userContact": request.form.get('myContact')} )
+    mongo.db.user.update(query, {"userName": request.form.get('myName'), "userEmail": request.form.get('myEmail'), "userContact": request.form.get('myContact')} )
     return redirect(url_for('mysearch'))
 
 @app.route('/my_adv/<user_id>')
@@ -77,7 +77,7 @@ def delete_adv(adv_id):
 @app.route('/delete_adv2/', methods=['POST'])
 def delete_adv2(): 
     adv_id=request.form.get('adv_id')
-    mongo.db.user.remove({'_id': ObjectId(adv_id)})
+    mongo.db.pet.remove({'_id': ObjectId(adv_id)})
     return redirect(url_for('mysearch'))
     
 if __name__ == '__main__':
