@@ -12,8 +12,8 @@
      
           <div>
             <button type="submit" name="action">Update My Details</button>
-            <a href="{{url_for('add_adv', user_id=num._id)}}" >Add Advertisement</a>&nbsp &nbsp
-            <a href="{{url_for('my_adv', user_id=num._id)}}" >My Advertisement</a>&nbsp &nbsp
+            <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" >Add Advertisement</button>&nbsp &nbsp
+            <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" >My Advertisement</button>&nbsp &nbsp
           </div>
           {% endfor %}
      </div>         

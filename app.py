@@ -80,7 +80,7 @@ def my_adv(user_id):
 @app.route('/update_adv/', methods=['POST'])
 def update_adv():
     query = {'_id':ObjectId(request.form.get('adv_id'))}
-    mongo.db.pet.update(query, {"petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
+    mongo.db.pet.update(query, {"user_id": ObjectId(request.form.get('user_id')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
     return redirect(url_for('mysearch'))
 
 # Delete the Advertisment

@@ -3,8 +3,12 @@
          {% for num in pet%}
           <label>Advertisement ID</label>
           <input id="adv_id" name="adv_id" type="text" value={{num._id}} ><br>
+          <label>User ID</label>
+          <input id="user_id" name="user_id" type="text" value={{num.user_id}} ><br>
           <label>Pet Name</label>
           <input id="petName" name="petName" type="text" value={{num.petName}} ><br>
+          <label>Pet Category</label>
+          <input id="petCat" name="petCat" type="text" value={{num.petCat}} ><br>
           <label>Gender</label>
           <input id="gender" name="gender" type="text" value={{num.gender}} ><br>
           <label>Color</label>
@@ -16,7 +20,7 @@
      
           <div>
             <button type="submit" name="action">Update Advertisement</button>
-            <a href="{{url_for('delete_adv', adv_id=num._id)}}" >Delete</a>&nbsp &nbsp
+            <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" >Delete</button>&nbsp &nbsp
           </div>
           {% endfor %}
      </div>         
