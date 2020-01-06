@@ -1,21 +1,26 @@
- <form action="{{url_for('update_user')}}" method="POST">
-     <div>
-         {% for num in user%}
-         <label>User ID</label>
-          <input id="user_id" name="user_id" type="text" value={{num._id}} ><br>
-          <label>User Name</label>
-          <input id="myName" name="myName" type="text" value={{num.userName}} ><br
-          <label>User Email</label>
-          <input id="myEmail" name="myEmail" type="text" value={{num.userEmail}} ><br>
-          <label>User Contact</label>
-          <input id="myContact" name="myContact" type="text" value={{num.userContact}} ><br>
-     
-          <div>
-            <button type="submit" name="action">Update My Details</button>
-            <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" >Add Advertisement</button>&nbsp &nbsp
-            <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" >My Advertisement</button>&nbsp &nbsp
-          </div>
-          {% endfor %}
-     </div>         
-    
- </form>
+<!--Form that display the particular of the user-->
+<form action="{{url_for('update_user')}}" method="POST">
+   <div>
+       {% for num in user%}
+           <label>User ID</label>
+           <input id="user_id" name="user_id" type="text" value={{num._id}} ><br>
+           <label>User Name</label>
+           <input id="myName" name="myName" type="text" value={{num.userName}} ><br>
+           <label>User Email</label>
+           <input id="myEmail" name="myEmail" type="text" value={{num.userEmail}} ><br>
+           <label>User Contact</label>
+           <input id="myContact" name="myContact" type="text" value={{num.userContact}} ><br>
+         
+           <div>
+               <!--Button for user to update their particular-->
+               <button type="submit" name="action">Update My Details</button>
+               
+               <!--Button for user to add in new Advertisement-->
+               <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" >Add Advertisement</button>&nbsp &nbsp
+               
+               <!--Button for user to view their Advertisement-->
+               <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" >My Advertisement</button>&nbsp &nbsp
+           </div>
+       {% endfor %}
+   </div>         
+</form>

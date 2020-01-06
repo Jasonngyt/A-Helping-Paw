@@ -1,5 +1,6 @@
- <form action="{{ url_for('insert_adv') }}" method="POST">
-     <div>
+<!--Form for user to add in new Advertisment-->
+<form action="{{ url_for('insert_adv') }}" method="POST">
+    <div>
         <label>User ID</label>
         <input id="userID" name="userID" type="text" value={{user_id}}><br>
         <label>Pet Name</label>
@@ -15,7 +16,9 @@
         <label>Description</label>
         <input id="description" name="description" type="text"><br>
     </div>
+    
     <div>
+        <!--Submit Button to add the new Advertisment-->
         <button type="submit" name="action">Add Advertisment</button>
     </div>
- </form>
+</form>

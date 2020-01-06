@@ -1,11 +1,13 @@
- <form action="{{url_for('delete_adv2')}}" method="POST">
-     <div>
-         <label>Advetisement ID</label>
-          <input id="adv_id" name="adv_id" type="text" value={{adv_id}} ><br>
-     </div>         
+<!--Form to confirm delete advertisment-->
+<form action="{{url_for('delete_adv2')}}" method="POST">
+    <div>
+        <label>Advetisement ID</label>
+        <input id="adv_id" name="adv_id" type="text" value={{adv_id}} ><br>
+    </div> 
+     
     <div>
         <button type="submit" name="action">Confirm Delete?</button>
     </div>
- </form>
+</form>
   
   

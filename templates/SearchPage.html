@@ -1,30 +1,34 @@
-        <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" >Add User</button>&nbsp &nbsp
-        <button type="button" onclick="window.location.href='{{url_for('login')}}'">Login</button><br><br>
+<!--Buttton foruser to go to Sign Up page-->
+<button type="button" onclick="window.location.href='{{url_for('add_user')}}'" >Sign Up</button>&nbsp &nbsp
         
-        <form action="{{url_for('showsearch')}}" method="POST" >
-            <div>
-              <label>Type the pet that you wish to search:</label>
-              <input  id="searchPetCat" name="searchPetCat" type="text">
-              <button type="submit" name="action">Search</button><br><br>
-            </div>
-            
-            <div>
-            {% for num in pet %}
-            Advetisement ID: {{num._id}} <br>
-            Pet Name: {{num.petName}} <br>
-            Pet Category: {{num.petCat}} <br>
-            Gender: {{num.gender}} <br>
-            Color: {{num.color}} <br>
-            Age: {{num.age}} <br>
-            Description: {{num.description}}<br><br>
-                     {% for row in user %}
-                    {% if row._id == num.user_id %}
-                        Posted by: {{ row.userName }}<br>
-                        Email: {{ row.userEmail }}<br>
-                        Contact: {{ row.userContact }}<br><br>
-                    {%endif %}
-                {% endfor %}   
-            {% endfor %}
-            </div>
+<!--Button for user to go to Log In page-->
+<button type="button" onclick="window.location.href='{{url_for('login')}}'">Login</button><br><br>
         
-        </form>
+<!--Form for user to search for their pets through Pet Category-->
+<form action="{{url_for('showsearch')}}" method="POST" >
+    <div>
+        <label>Type the pet that you wish to search:</label>
+        <input  id="searchPetCat" name="searchPetCat" type="text">
+        <button type="submit" name="action">Search</button><br><br>
+    </div>
+</form>
+        
+<!--Display all listed advertisment-->
+<div>
+    {% for num in pet %}
+        Advetisement ID: {{num._id}} <br>
+        Pet Name: {{num.petName}} <br>
+        Pet Category: {{num.petCat}} <br>
+        Gender: {{num.gender}} <br>
+        Color: {{num.color}} <br>
+        Age: {{num.age}} <br>
+        Description: {{num.description}}<br><br>
+        {% for row in user %}
+            {% if row._id == num.user_id %}
+                Posted by: {{ row.userName }}<br>
+                Email: {{ row.userEmail }}<br>
+                Contact: {{ row.userContact }}<br><br>
+            {%endif %}
+        {% endfor %}   
+    {% endfor %}
+</div>

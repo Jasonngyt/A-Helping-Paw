@@ -39,7 +39,7 @@ def insert_user():
     mongo.db.user.insert_one({"userName":request.form.get('userName'), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
     return redirect(url_for('mysearch'))
 
-# Go to Form for user to add advertisment
+# Form for user to add advertisment
 @app.route('/add_adv/<user_id>')
 def add_adv(user_id):
     return render_template("add_adv.html",user_id=user_id) 

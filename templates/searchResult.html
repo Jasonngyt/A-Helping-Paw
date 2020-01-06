@@ -1,3 +1,12 @@
+<!--Form for user to search for their pets through Pet Category-->
+<form action="{{url_for('showsearch')}}" method="POST" >
+    <div>
+        <label>Type the pet that you wish to search:</label>
+        <input  id="searchPetCat" name="searchPetCat" type="text">
+        <button type="submit" name="action">Search</button><br><br>
+    </div>
+</form>
+
 {% for num in pet %}
     Advertisement ID: {{num._id}} <br>
     Pet Name: {{num.petName}} <br>
@@ -8,9 +17,9 @@
     Description: {{num.description}}<br>
     {% for row in user %}
         {% if num.user_id == row._id %}
-        Posted by: {{ row.userName }}<br>
-        Email: {{ row.userEmail }}<br>
-        Contact: {{ row.userContact }}<br><br>
+            Posted by: {{ row.userName }}<br>
+            Email: {{ row.userEmail }}<br>
+            Contact: {{ row.userContact }}<br><br>
         {% endif %}
     {% endfor %}   
 {% endfor %}
