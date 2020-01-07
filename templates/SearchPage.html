@@ -1,34 +1,177 @@
-<!--Buttton foruser to go to Sign Up page-->
-<button type="button" onclick="window.location.href='{{url_for('add_user')}}'" >Sign Up</button>&nbsp &nbsp
-        
-<!--Button for user to go to Log In page-->
-<button type="button" onclick="window.location.href='{{url_for('login')}}'">Login</button><br><br>
-        
-<!--Form for user to search for their pets through Pet Category-->
-<form action="{{url_for('showsearch')}}" method="POST" >
-    <div>
-        <label>Type the pet that you wish to search:</label>
-        <input  id="searchPetCat" name="searchPetCat" type="text">
-        <button type="submit" name="action">Search</button><br><br>
+<!doctype html>
+<html lang="en">
+    
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- My Style CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <title>A Helping Paw</title>
+  </head>
+  
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="image/Logo.png" class="rounded float-left">
+            </div>
+            <div class="col-4">
+                A Helping Paw
+            </div>
+            <div class="col-6"> 
+                <!--Buttton foruser to go to Sign Up page-->
+                <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary" >Home Page</button>&nbsp &nbsp
+                
+                <!--Buttton foruser to go to Sign Up page-->
+                <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn btn-primary">Sign Up</button>&nbsp &nbsp
+                        
+                <!--Button for user to go to Log In page-->
+                <button type="button" onclick="window.location.href='{{url_for('login')}}'" class="btn btn-primary">Login</button><br><br>
+            </div>
+        </div>
     </div>
-</form>
+    
+    <div class= "container">
+    <!--Form for user to search for their pets through Pet Category-->
+        <form action="{{url_for('showsearch')}}" method="POST" >
+            <div>
+                <div>
+                    <label>Tell me your ideal pet to adopt:</label>
+                </div><br>
+                <div>
+                    <input  id="searchPetCat" name="searchPetCat" type="text">
+                </div><br>
+                <div>
+                    <button type="submit" name="action">Search</button><br><br>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="container">
+        <h4>
+            About Us
+        </h4>
+        <div>
+            Pets are abandoned every day. In 2011, there were 7,081 animals– up to 50 per cent were unwanted or abandoned pets. 
+            3,169 were domestic pets like dogs, cats, rabbits, hamsters and guinea pigs often abandoned at void decks. Many animals are left at a shelter 
+            homes. Many shelter homes unable to cope with the increased number of incoming animals, due to a lack of space and limted financial resources.<br><br>
+            
+            A Helping Paw was establised in 2017 in mission to help these poor animals to find a new Home. We strongly believe these animals deserve a second chance at life.
+            We provided a FREE Advertisement Space to Shelter Homes and Pet Owner to post the profile of the animals. <br><br>
+            
+            We believe that YOU who is searching for a buddy in your life can provide them a safe and comfortable Home. <br><br>
+        </div>
+    </div>
+    
+    <!--Information to user on why adoption is better then purchasing a pet from store-->
+    <div class="container whyAdopt">
+        <h3>
+            4 Reasons to Adopt A Pet Than Buy One
+        </h3><br>
+        <div>
+            <h4>
+                1. Don’t Just Save One Life, Save Two Instead
+            </h4>
+            <div>
+                As much as animal shelters want to provide the best, there is only so much they can do.
+                Most animal shelters run out of space every day. Too many pets come into shelters 
+                and too few people consider pet adoption. It’s a hard pill to swallow to know that pets that 
+                are less likely adopted are usually euthanised. Animal shelters simply cannot afford to house 
+                all of them in a limited space. When you plan to get a pet, choose to adopt instead. Not only 
+                do you provide a pet with a second chance as an additional family member, but you also free up 
+                shelter space for another pet’s desperate need. 
+            </div>
+        </div><br>
+        <div>
+            <h4>
+                2. Adopted Pets Are Not Bad, Old Or Unhealthy
+            </h4>
+            <div>
+                It is important to understand that most pets wind up in shelters due to external factors. 
+                More often than not, the prevailing reasons for pets in shelters are due to abuse, financial 
+                constraints, relocation and abandonment. Another common misconception of shelter pets is that 
+                they are old and unhealthy. However, that is not usually the case! <br><br>
+
+                Most animal shelters in Singapore have a professional veterinarian to tend to the pets’ health 
+                conditions. Aside from receiving yearly examinations, the pets are also regularly vaccinated, 
+                neutered and fed. When you adopt, you actually give a healthy pet a new home in return. 
+            </div>
+        </div><br>
+        <div>
+            <h4>
+                3. Cost-Friendly
+            </h4>
+            <div>
+                Simply put, adoption is easier on your pocket than buying a pet. Animal shelters already take care 
+                of microchipping and spaying/neutering during the adoption. Rather than buying a pet that requires 
+                to be taken to the vet for vaccinations, you save money by having the first round of vaccination 
+                for your pet at the shelter. Furthermore, many of the pets in shelters are already house-trained 
+                and used to living with families. When you adopt, you not only save the upfront medical costs but 
+                you also save on housebreaking and training expenses. 
+            </div>
+        </div><br>
+        <div>
+            <h4>
+                4. Stop Irresponsible Breeding
+            </h4>
+            <div>
+                When you buy a pet from a pet store, be it a dog or a cat, you can never be certain if they are 
+                spawned from irresponsible breeders. Often known as a puppy/kitten mill, these organisations put 
+                profit above the welfare of animals. They have no care in the world for the well-being of the pets 
+                they take in. Time and again, these breeding facilities keep pets in shockingly tiny, wired cages. 
+                After which, they force the caged-up pets to breed repeatedly. These pets do not have the vaguest 
+                clue of what human companionship is with little hope of ever joining a family. <br><br>
+
+                When the pets are no longer profitable, they are simply discarded – routinely abandoned or killed. 
+                The correlation between these irresponsible breeders and pet stores is that most pet stores are in 
+                the dark as to where they are getting their pets. When you adopt, not only do you find yourself a 
+                new furry friend, you also do your part to deter these irresponsible breeders profiting from their 
+                ill-advised ethics.
+            </div>
+        </div><br>
+    </div>
+    
+    <!--Information to user on the factors to consider before adoption-->
+    <div class="container">
+        <div>
+            <h3>
+                Things to Think About Before You Decide to Adopt
+            </h3>
+        </div>
         
-<!--Display all listed advertisment-->
-<div>
-    {% for num in pet %}
-        Advetisement ID: {{num._id}} <br>
-        Pet Name: {{num.petName}} <br>
-        Pet Category: {{num.petCat}} <br>
-        Gender: {{num.gender}} <br>
-        Color: {{num.color}} <br>
-        Age: {{num.age}} <br>
-        Description: {{num.description}}<br><br>
-        {% for row in user %}
-            {% if row._id == num.user_id %}
-                Posted by: {{ row.userName }}<br>
-                Email: {{ row.userEmail }}<br>
-                Contact: {{ row.userContact }}<br><br>
-            {%endif %}
-        {% endfor %}   
-    {% endfor %}
-</div>
+        <div>
+            <p>
+                Owning an animal is a significant responsibility and one which needs to be properly thought through.
+                Being a responsible pet owner means taking care of all the animal’s day-to-day needs, giving them lots of love, 
+                affection, and attention and making sure they receive proper veterinary care when they fall ill. 
+                You need to consider whether you have the time, space, energy and passion it takes to provide a pet with a forever 
+                home where they will be happy and healthy. <br><br>
+
+                If you are keen on our pet adoption program, you can start your search for your buddy by reading the pet profiles we have listed below. 
+                Each individual profile lists the animal’s name, sex and estimated age as well as a little bit about their temperament and idiosyncrasies. 
+                If you are interested in a particular pet, simply contact the number or email provided beside each profile.
+        </div>
+    </div>
+    <img src ="image/dogcat.jpg"
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
