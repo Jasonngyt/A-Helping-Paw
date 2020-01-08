@@ -1,0 +1,4 @@
+body {
+    background-image: url({{ url_for('static', filename='/image/background1.jpg')}});
+    background-color: red;
+}
