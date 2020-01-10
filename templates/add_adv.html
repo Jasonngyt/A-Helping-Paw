@@ -1,30 +1,107 @@
-<!--Form for user to add in new Advertisment-->
-<form action="{{ url_for('insert_adv') }}" method="POST">
-    <div>
-        <label>User ID: </label>
-        <input id="userID" name="userID" type="text" value={{user_id}} disabled><br>
-        <label>Pet Name: </label>
-        <input id="petName" name="petName" type="text" required><br>
-        <label>Pet Category: </label>
-        <input id="petCat" name="petCat" type="text" required><br>
-        <label>Gender: </label>
-        <input id="gender" name="gender" type="text" required><br>
-        <label>Color: </label>
-        <input id="color" name="color" type="text" required><br>
-        <label>Age: </label>
-        <input id="age" name="age" type="text" required><br>
-        <label>Description: </label>
-        <input id="description" name="description" type="text" required><br>
-        
-        <label>Upload Photo</label>
-        <form method=post enctype=multipart/form-data>
-          <input type=file name=file>
-          <input type=submit value=Upload>
-        </form>
-    </div>
+<!doctype html>
+<html lang="en">
     
-    <div>
-        <!--Submit Button to add the new Advertisment-->
-        <button type="submit" name="action">Add Advertisment</button>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- My Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+    
+    <title>A Helping Paw</title>
+  </head>
+  
+  <body>
+    <div class="container-fuid bg-light">
+      <div class="container pt-5 pb-4">
+          <div class="row">
+              <div class="col-md-1 d-flex justify-content-center">
+                  <image src ="{{ url_for('static', filename='image/Logo.png')}}" width="100" height="100">
+              </div>
+              <div class="col-md-4 navbar-brand">
+                  <h1>
+                      A Helping Paw
+                  </h1>
+              </div>
+              <div class="col-md-6 col-sm-12 float-md-right"> 
+                  <!--Buttton foruser to go to Sign Up page-->
+                  <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Home Page</button>&nbsp &nbsp
+                  
+                  <!--Buttton foruser to go to Sign Up page-->
+                  <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Sign Up</button>&nbsp &nbsp
+                          
+                  <!--Button for user to go to Log In page-->
+                  <button type="button" onclick="window.location.href='{{url_for('login')}}'" class=" btn-lg btn-outline-dark float-md-right">Login</button><br><br>
+              </div>
+          </div>
+      </div>
     </div>
-</form>
+
+    
+      <h5>
+        <div class="container bg-light p-3 mt-5 mb-5">
+        <!--Form for user to add in new Advertisment-->
+        <form action="{{ url_for('insert_adv') }}" method="POST">
+                <label>User ID: </label><br>
+                <input id="userID" name="userID" type="text" value={{user_id}} class="form-control"><br><br>
+                
+                <label>Pet Name: </label><br>
+                <input id="petName" name="petName" type="text" class="form-control" required><br><br>
+                
+                <label>Pet Category: </label><br>
+                <input id="petCat" name="petCat" type="text" class="form-control" required><br><br>
+                
+                <div class="form-group">
+                  <label for="petCat">Pet Category: </label>
+                  <select class="form-control" id="petCat" name="petCat">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="bird">Bird</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="rabbit">Rabbit</option>
+                    <option value="fish">Fish</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="gender">Gender: </label>
+                  <select class="form-control" id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+  
+                <label>Color: </label><br>
+                <input id="color" name="color" type="text" required class="form-control"><br><br>
+                <label>Age: </label><br>
+                <input id="age" name="age" type="text" required class="form-control"><br><br>
+                <label>Description: </label><br>
+                <textarea id="description" name="description" type="text" class="form-control" rows="5" required></textarea><br><br>
+
+                <!--<label>Upload Photo</label>-->
+                <!--<form method=post enctype=multipart/form-data>-->
+                <!--  <input type=file name=file>-->
+                <!--  <input type=submit value=Upload>-->
+            
+            
+          
+                <!--Submit Button to add the new Advertisment-->
+                <button type="submit" name="action" class="btn-lg btn-outline-dark">Add Advertisment</button>
+             </div>
+        </form>
+      </h5>
+
+ 
+    <div class="mb-5"></div>
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

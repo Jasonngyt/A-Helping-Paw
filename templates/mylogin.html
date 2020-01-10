@@ -10,66 +10,71 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- My Style CSS -->
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
 
     
     <title>A Helping Paw</title>
   </head>
   
   <body>
-    <div class="container mt-5 mb-4" >
-        <div class="row">
-            <div class="col-md-1 d-flex justify-content-center">
-                <image src ="{{ url_for('static', filename='image/Logo.png')}}" width="100" height="100">
-            </div>
-            <div class="col-md-4 navbar-brand">
-                <h1>
-                    A Helping Paw
-                </h1>
-            </div>
-            <div class="col-md-6 col-sm-12 float-md-right"> 
-                <!--Buttton foruser to go to Sign Up page-->
-                <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-sm-md btn-outline-dark pr-3 float-md-right">Home Page</button>
-                
-                <!--Buttton foruser to go to Sign Up page-->
-                <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn-lg btn-sm-md btn-outline-dark pr-3 float-md-right">Sign Up</button>
-                        
-                <!--Button for user to go to Log In page-->
-                <button type="button" onclick="window.location.href='{{url_for('login')}}'" class=" btn-lg btn-outline-dark float-md-right">Login</button>
-            </div>
-        </div>
+    <div class="container-fuid bg-light">
+      <div class="container pt-5 pb-4">
+          <div class="row">
+              <div class="col-md-1 d-flex justify-content-center">
+                  <image src ="{{ url_for('static', filename='image/Logo.png')}}" width="100" height="100">
+              </div>
+              <div class="col-md-4 navbar-brand">
+                  <h1>
+                      A Helping Paw
+                  </h1>
+              </div>
+              <div class="col-md-6 col-sm-12 float-md-right"> 
+                  <!--Buttton foruser to go to Sign Up page-->
+                  <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Home Page</button>&nbsp &nbsp
+                  
+                  <!--Buttton foruser to go to Sign Up page-->
+                  <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Sign Up</button>&nbsp &nbsp
+                          
+                  <!--Button for user to go to Log In page-->
+                  <button type="button" onclick="window.location.href='{{url_for('login')}}'" class=" btn-lg btn-outline-dark float-md-right">Login</button><br><br>
+              </div>
+          </div>
+      </div>
     </div>
     
-    <<div class="container">
-
-        <!--Form that display the particular of the user-->
-        <form action="{{url_for('update_user')}}" method="POST">
-           <div>
-               {% for num in user%}
-                   <label>User ID</label>
-                   <input id="user_id" name="user_id" type="text" value={{num._id}} disabled><br>
-                   <label>User Name</label>
-                   <input id="myName" name="myName" type="text" value={{num.userName}} required><br>
-                   <label>User Email</label>
-                   <input id="myEmail" name="myEmail" type="email" value={{num.userEmail}} required><br>
-                   <label>User Contact</label>
-                   <input id="myContact" name="myContact" type="tel" value={{num.userContact}} required><br>
-                 
-                   <div>
-                       <!--Button for user to update their particular-->
-                       <button type="submit" name="action">Update My Details</button>
-                       
-                       <!--Button for user to add in new Advertisement-->
-                       <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" >Add Advertisement</button>&nbsp &nbsp
-                       
-                       <!--Button for user to view their Advertisement-->
-                       <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" >My Advertisement</button>&nbsp &nbsp
-                   </div>
-               {% endfor %}
-           </div>         
-        </form>
-        
-         </div>
+      
+     <div class="row d-flex justify-content-center">
+          <div class="mt-5 d-none d-md-block">
+            <image src ="{{ url_for('static', filename='image/bird.jpg')}}" width="450" height="570">
+          </div>
+          
+          <div class="bg-light p-3 mt-5">
+              <!--Form that display the particular of the user-->
+              <form action="{{url_for('update_user')}}" method="POST">
+                  {% for num in user%}
+                    <h5>
+                      <label>User ID</label><br>
+                      <input id="user_id" name="user_id" type="text" value={{num._id}} class="form-control"><br><br>
+                      <label>User Name</label><br>
+                      <input id="myName" name="myName" type="text" value={{num.userName}} class="form-control" required><br><br>
+                      <label>User Email</label><br>
+                      <input id="myEmail" name="myEmail" type="email" value={{num.userEmail}} class="form-control" required><br><br>
+                      <label>User Contact</label><br>
+                      <input id="myContact" name="myContact" type="tel" value={{num.userContact}} class="form-control" required><br><br>
+                    </h5>
+                    
+                      <!--Button for user to update their particular-->
+                      <button type="submit" name="action" class=" btn-lg btn-outline-dark">Update My Details</button>&nbsp &nbsp
+                             
+                      <!--Button for user to add in new Advertisement-->
+                      <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class=" btn-lg btn-outline-dark">Add Advertisement</button>&nbsp &nbsp
+                             
+                      <!--Button for user to view their Advertisement-->
+                       <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class=" btn-lg btn-outline-dark">My Advertisement</button>
+                  {% endfor %}
+            </form>
+          </div>
+      </div>
 
     <div class="mb-5"></div>
     <!-- JavaScript -->

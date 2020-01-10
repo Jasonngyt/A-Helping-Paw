@@ -10,87 +10,74 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- My Style CSS -->
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
 
     
     <title>A Helping Paw</title>
   </head>
   
   <body>
-    <div class="container mt-5 mb-4" >
-        <div class="row">
-            <div class="col-md-1 d-flex justify-content-center">
-                <image src ="{{ url_for('static', filename='image/Logo.png')}}" width="100" height="100">
-            </div>
-            <div class="col-md-4 navbar-brand">
-                <h1>
-                    A Helping Paw
-                </h1>
-            </div>
-            <div class="col-md-6 col-sm-12 float-md-right"> 
-                <!--Buttton foruser to go to Sign Up page-->
-                <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-sm-md btn-outline-dark pr-3 float-md-right">Home Page</button>
-                
-                <!--Buttton foruser to go to Sign Up page-->
-                <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn-lg btn-sm-md btn-outline-dark pr-3 float-md-right">Sign Up</button>
-                        
-                <!--Button for user to go to Log In page-->
-                <button type="button" onclick="window.location.href='{{url_for('login')}}'" class=" btn-lg btn-outline-dark float-md-right">Login</button>
-            </div>
-        </div>
+    <div class="container-fuid bg-light">
+      <div class="container pt-5 pb-4">
+          <div class="row">
+              <div class="col-md-1 d-flex justify-content-center">
+                  <image src ="{{ url_for('static', filename='image/Logo.png')}}" width="100" height="100">
+              </div>
+              <div class="col-md-4 navbar-brand">
+                  <h1>
+                      A Helping Paw
+                  </h1>
+              </div>
+              <div class="col-md-6 col-sm-12 float-md-right"> 
+                  <!--Buttton foruser to go to Sign Up page-->
+                  <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Home Page</button>&nbsp &nbsp
+                  
+                  <!--Buttton foruser to go to Sign Up page-->
+                  <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Sign Up</button>&nbsp &nbsp
+                          
+                  <!--Button for user to go to Log In page-->
+                  <button type="button" onclick="window.location.href='{{url_for('login')}}'" class=" btn-lg btn-outline-dark float-md-right">Login</button><br><br>
+              </div>
+          </div>
+      </div>
     </div>
     
-    <<div class="container">
+    <<div class="container bg-light pt-3 pb-3 mt-5">
 
         <!--Display the advertisment posted by the user based on User ID-->
      
         <form action="{{url_for('update_adv')}}" method="POST">
             <div>
+                
                 {% for num in pet%}
-                    <input id="adv_id" name="adv_id" type="text" value={{num._id}} disabled><br>
-                    <label>User ID</label>
-                    <input id="user_id" name="user_id" type="text" value={{num.user_id}} disabled><br>
-                    <label>Pet Name</label>
-                    <input id="petName" name="petName" type="text" value={{num.petName}} required><br>
-                    <label>Pet Category</label>
-                    <input id="petCat" name="petCat" type="text" value={{num.petCat}} required><br>
-                    <label>Gender</label>
-                    <input id="gender" name="gender" type="text" value={{num.gender}} ><br>
-                    <label>Color</label>
-                    <input id="color" name="color" type="text" value={{num.color}} required><br>
-                    <label>Age</label>
-                    <input id="age" name="age" type="text" value={{num.age}} ><br>
-                    <label>Description</label>
-                    <input id="description" name="description" type="text" value={{num.description}} required><br>
-             
-                    <div>
+                    <h5>
+                        <input id="adv_id" name="adv_id" type="text" value={{num._id}}><br>
+                        <label>User ID: </label><br
+                        <input id="user_id" name="user_id" type="text" value='{{num.user_id}}' ><br><br>
+                        <label>Pet Name: </label><br>
+                        <input id="petName" name="petName" type="text" value='{{num.petName}}' class="form-control" required><br><br>
+                        <label>Pet Category: </label><br>
+                        <input id="petCat" name="petCat" type="text" value='{{num.petCat}}' class="form-control" required><br><br>
+                        <label>Gender: </label><br>
+                        <input id="gender" name="gender" type="text" value='{{num.gender}}' class="form-control" required><br><br>
+                        <label>Color: </label><br>
+                        <input id="color" name="color" type="text" value='{{num.color}}' class="form-control" required><br><br>
+                        <label>Age: </label><br>
+                        <input id="age" name="age" type="text" value='{{num.age}}' class="form-control" required><br><br>
+                        <label>Description: </label><br>
+                        <input id="description" name="description" type="text" cols="100" rows="5" value='{{num.description}}' class="form-control" required ><br>
+                      </h5>    
+                      
                         <!--Button for user to update their advertisment-->
-                        <button type="submit" name="action">Update Advertisement</button>
-                    
+                        <button type="submit" name="action" class="btn-lg btn-outline-dark">Update Advertisement</button>
+                            
                         <!--Button for user to go to Delete Advertisement page-->
-                        <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" >Delete</button>&nbsp &nbsp
-                    </div>
+                        <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class=" btn-lg btn-outline-dark">Delete</button><br><br><br>
+                  
                 {% endfor %}
-            </div>         
+            </div>       
          </form>
         
-        
-        {% for num in pet %}
-            Advertisement ID: {{num._id}} <br>
-            Pet Name: {{num.petName}} <br>
-            Pet Category: {{num.petCat}} <br>
-            Gender: {{num.gender}} <br>
-            Color: {{num.color}} <br>
-            Age: {{num.age}} <br>
-            Description: {{num.description}}<br>
-            {% for row in user %}
-                {% if num.user_id == row._id %}
-                Posted by: {{ row.userName }}<br>
-                Email: {{ row.userEmail }}<br>
-                Contact: {{ row.userContact }}<br><br>
-                {% endif %}
-            {% endfor %}   
-        {% endfor %}
     </div>
     <div class="mb-5"></div>
     <!-- JavaScript -->

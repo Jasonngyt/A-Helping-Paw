@@ -1,17 +1,14 @@
 
 #Import all the required libraries
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
-UPLOAD_FOLDER = '/path/to/the/uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
-
 # Connection to MongoDB
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = '/home/ubuntu/enivroment/uploads'
 app.config["MONGO_DBNAME"] = 'pet_adopt'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
