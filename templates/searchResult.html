@@ -59,33 +59,30 @@
         </form>
     </div>
     
-    
-    <div class="container p-3 bg-light">
-        
-        {% for num in pet %}
-          <div class="row"> 
-            <div class="p-3">
-                Advertisement ID: {{num._id}} <br>
-                Pet Name: {{num.petName}} <br>
-                Pet Category: {{num.petCat}} <br>
-                Gender: {{num.gender}} <br>
-                Color: {{num.color}} <br>
-                Age: {{num.age}} <br>
-                Description: {{num.description}}<br>
-            </div>
-            <div class="p-3">
-                {% for row in user %}
-                    {% if num.user_id == row._id %}
-                        Posted by: {{ row.userName }}<br>
-                        Email: {{ row.userEmail }}<br>
-                        Contact: {{ row.userContact }}<br><br>
-                    {% endif %}
-                {% endfor %}  
-            </div>
-        </div><br><br>
-        {% endfor %}
-        
-    </div><br>
+    <h5>
+        <div class="container p-3 bg-light">
+            
+            {% for num in pet %}
+                    Advertisement ID: {{num._id}} <br>
+                    Pet Name: {{num.petName}} <br>
+                    Pet Category: {{num.petCat}} <br>
+                    Gender: {{num.gender}} <br>
+                    Color: {{num.color}} <br>
+                    Age: {{num.age}} <br>
+                    Description: {{num.description}}<br>
+               
+                    {% for row in user %}
+                        {% if num.user_id == row._id %}
+                            Posted by: {{ row.userName }}<br>
+                            Email: {{ row.userEmail }}<br>
+                            Contact: {{ row.userContact }}<br><br>
+                        {% endif %}
+                    {% endfor %}  
+              
+            {% endfor %}
+            
+        </div><br>
+    </h5>
 
     <div class="mb-5"></div>
     <!-- JavaScript -->
