@@ -29,7 +29,7 @@
                   </h1>
               </div>
               <div class="col-md-6 col-sm-12 float-md-right"> 
-                  <!--Buttton foruser to go to Sign Up page-->
+                  <!--Buttton foruser to go to Homepage-->
                   <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Home Page</button>&nbsp &nbsp
                   
                   <!--Buttton foruser to go to Sign Up page-->
@@ -51,9 +51,8 @@
                 
                 {% for num in pet%}
                     <h5>
-                        <input id="adv_id" name="adv_id" type="text" value={{num._id}}><br>
-                        <label>User ID: </label><br
-                        <input id="user_id" name="user_id" type="text" value='{{num.user_id}}' ><br><br>
+                        <input id="adv_id" name="adv_id" type="text" value='{{num._id}}' class="d-none"><br>
+                        <input id="user_id" name="user_id" type="text" value='{{num.user_id}}' class="d-none">
                         <label>Pet Name: </label><br>
                         <input id="petName" name="petName" type="text" value='{{num.petName}}' class="form-control" required><br><br>
                         <label>Pet Category: </label><br>
@@ -65,10 +64,11 @@
                         <label>Age: </label><br>
                         <input id="age" name="age" type="text" value='{{num.age}}' class="form-control" required><br><br>
                         <label>Description: </label><br>
-                        <input id="description" name="description" type="text" cols="100" rows="5" value='{{num.description}}' class="form-control" required ><br>
+                        <input id="description" name="description" type="text" class="form-control" rows="5" value='{{num.description}}' class="form-control" required ><br>
                       </h5>    
                       
                         <!--Button for user to update their advertisment-->
+                        <!--<button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class=" btn-lg btn-outline-dark">-->
                         <button type="submit" name="action" class="btn-lg btn-outline-dark">Update Advertisement</button>
                             
                         <!--Button for user to go to Delete Advertisement page-->

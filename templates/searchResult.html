@@ -29,7 +29,7 @@
                   </h1>
               </div>
               <div class="col-md-6 col-sm-12 float-md-right"> 
-                  <!--Buttton foruser to go to Sign Up page-->
+                  <!--Buttton foruser to go to Homepage-->
                   <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn-lg btn-outline-dark pr-3 float-md-right">Home Page</button>&nbsp &nbsp
                   
                   <!--Buttton foruser to go to Sign Up page-->
@@ -63,22 +63,23 @@
         <div class="container p-3 bg-light">
             
             {% for num in pet %}
+                <div class="border">
                     Advertisement ID: {{num._id}} <br>
                     Pet Name: {{num.petName}} <br>
                     Pet Category: {{num.petCat}} <br>
                     Gender: {{num.gender}} <br>
                     Color: {{num.color}} <br>
                     Age: {{num.age}} <br>
-                    Description: {{num.description}}<br>
+                    Description: {{num.description}}<br><br>
                
                     {% for row in user %}
                         {% if num.user_id == row._id %}
                             Posted by: {{ row.userName }}<br>
                             Email: {{ row.userEmail }}<br>
-                            Contact: {{ row.userContact }}<br><br>
+                            Contact: {{ row.userContact }}<br><br><br>
                         {% endif %}
                     {% endfor %}  
-              
+                  </div>
             {% endfor %}
             
         </div><br>
