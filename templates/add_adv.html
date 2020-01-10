@@ -47,17 +47,13 @@
         <div class="container bg-light p-3 mt-5 mb-5">
         <!--Form for user to add in new Advertisment-->
         <form action="{{ url_for('insert_adv') }}" method="POST">
-                <label>User ID: </label><br>
-                <input id="userID" name="userID" type="text" value={{user_id}} class="form-control"><br><br>
+                <input id="userID" name="userID" type="text" value={{user_id}} class="form-control d-none">
                 
-                <label>Pet Name: </label><br>
+                <label>Pet Name </label><br>
                 <input id="petName" name="petName" type="text" class="form-control" required><br><br>
                 
-                <label>Pet Category: </label><br>
-                <input id="petCat" name="petCat" type="text" class="form-control" required><br><br>
-                
                 <div class="form-group">
-                  <label for="petCat">Pet Category: </label>
+                  <label for="petCat">Pet Category </label>
                   <select class="form-control" id="petCat" name="petCat">
                     <option value="dog">Dog</option>
                     <option value="cat">Cat</option>
@@ -66,21 +62,21 @@
                     <option value="rabbit">Rabbit</option>
                     <option value="fish">Fish</option>
                   </select>
-                </div>
+                </div><br>
                 
                 <div class="form-group">
-                  <label for="gender">Gender: </label>
+                  <label for="gender">Gender </label>
                   <select class="form-control" id="gender" name="gender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
-                </div>
+                </div><br>
   
-                <label>Color: </label><br>
+                <label>Color </label><br>
                 <input id="color" name="color" type="text" required class="form-control"><br><br>
-                <label>Age: </label><br>
+                <label>Age </label><br>
                 <input id="age" name="age" type="text" required class="form-control"><br><br>
-                <label>Description: </label><br>
+                <label>Description </label><br>
                 <textarea id="description" name="description" type="text" class="form-control" rows="5" required></textarea><br><br>
 
                 <!--<label>Upload Photo</label>-->
