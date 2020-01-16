@@ -120,7 +120,7 @@ The websites are tested on mobile phone and desktop. In addition, the pages are 
 ![Image](https://github.com/Jasonngyt/A-Helping-Paw/blob/master/static/image/desktop-view.jpg)
 
 #### Website Mobile View
-<img src='static/image/mobile-view.jpg' height="100px">
+<img src='static/image/mobile-view.jpg' width="50%">
 
 #### Browser Compatibility
 The application was tested on Firefox and Google Chrome. Both pages functioned satisfactorily on both browsers.
