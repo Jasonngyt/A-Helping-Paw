@@ -114,11 +114,11 @@ The Heart Shape enclosing the Paw represents the Love we have for our Pets and o
 The websites are tested on mobile phone and desktop. In addition, the pages are tested using different viewport under the inspector tool. The site is fully responsive - it's mobile and desktop-friendly.
  
 #### Website Desktop View
-<img src = "../static/image/desktop-view.jpg">
+<img src = 'static/image/desktop-view.jpg'>
+![Image](https://github.com/Jasonngyt/A-Helping-Paw/blob/master/static/image/desktop-view.jpg)
 
 #### Website Mobile View
-<image src ="{{ url_for('static', filename='image/mobile-view.jpg')}}">
-<img src = "../static/image/mobile-view.jpg">
+<img src='static/image/mobile-view.jpg'>
 
 #### Browser Compatibility
 The application was tested on Firefox and Google Chrome. Both pages functioned satisfactorily on both browsers.
@@ -127,9 +127,9 @@ The application was tested on Firefox and Google Chrome. Both pages functioned s
 | --- | --- | --- | --- |
 | 1 | Access the Homepage.<br><br> Click on About Us, 4 Reasons to Adopt a Pet Than Buy One, Things to Think About Before You Decide to Adopt individually. <br><br> The tab should expand and display the details. The other two tabs should collapse when one tab is expand. | Each tab expand and collapse as per the requirement. | Pass |
 | 2 | Click on Home page, Login and Sign Up Button in the navigation bar. It should bring you the respective web page. | All buttons function as per requirement. The buttons direct to the correct webpage. | Pass |
-| 3 | In the Homepage, enter the animal to be search ( for example. dog) and click the Search Button. All advertisements with dog in petCat will be display. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email should be properly displayed. | The search results display as per the search keyword. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email are properly displayed. | Pass |
+| 3 | In the Homepage, enter the animal to be search ( for example. dog or cat) and click the Search Button. All advertisements with dog in petCat will be display. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email should be properly displayed. | The search results display as per the search keyword. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email are properly displayed. | Pass |
 | 4 | In the Sign Up Page, enter the User Name, Email and Contact Number and click on the Sign Up Button. New Account will be created. <br><br> Try to click on the Search while leaving the boxes empty. There will be an error message prompting you to enter the required information. Error message will also be prompt if email is not correctly entered. | The User Account is created when user click the Sign up Button. This can be verified when user login with the registered User Name. <br><br> Error message is prompted when the boxes are empty and email not correctly entered | Pass |
-| 5 | In the Login Page, when the user enter the user name and click the Login Button. The user name, email and contact will be displayed. <br><br> Change the contact number and click on Update My Details Button. The user contact is updated. | Correct user details are displayed when user entered their user name and clicked the Login Button. <br><br>The user is able to update the contact number and other information. The changes are observed when the user login again. | Pass |
+| 5 | In the Login Page, when the user enter the user name and click the Login Button. (for example, Johnny or Jane) The user name, email and contact will be displayed. <br><br> Change the contact number and click on Update My Details Button. The user contact is updated. | Correct user details are displayed when user entered their user name and clicked the Login Button. <br><br>The user is able to update the contact number and other information. The changes are observed when the user login again. | Pass |
 | 6 | After logging in, click on My Advertisement Button. All the advertisement posted by the user should be displayed. | All the advertisements posted by the user are displayed. | Pass |
 | 7 | After logging in, click on Add Advertisement Button. The web page will be directed to the Add Advertisement page. <br><br> Enter the details and click on the Add Advertisement Button. New Advertisement should be added. <br><br> Leave the boxes empty and click the Add Advertisement Button. Error message will prompt the user to enter the required information. | The web page are directed to Add Advertisement page. <br><br> New Advertisement are added. The new advertisement are display when user clicked on My Advertisement Button. <br><br> Error message are shown when the boxes are left empty. | Pass |
 | 8 | In My Advertisement page, change details such as the Pet Name and click on Update Advertisement Button. <br><br> The advertisement should be updated. | The advertisement is updated. Changes are verified when user clicked on My Advertisement Button to view their advertisement. | Pass |
