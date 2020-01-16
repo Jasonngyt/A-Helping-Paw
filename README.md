@@ -60,7 +60,9 @@ When the user create a pet advertisement,  the _id in the user collection will b
 
 The Search is based on the petCat in pet collection. The user_id in the pet collection is used to link to _id in the user collection. If both of them matches, the user will be display in the search result with the pet details.
 
-The edit and delete function of the pet is based on the _id of the pet collection.
+The edit and delete function of the pet is based on the _id of the pet collection. <br>
+
+<img src = "static/image/ER_Diagram2.jpg">
 
 ## Project Skeleton
 ### Existing Features
