@@ -119,7 +119,6 @@ The websites are tested on mobile phone and desktop. In addition, the pages are 
  
 #### Website Desktop View
 <img src = 'static/image/desktop-view.jpg'>
-![Image](https://github.com/Jasonngyt/A-Helping-Paw/blob/master/static/image/desktop-view.jpg)
 
 #### Website Mobile View
 <img src='static/image/mobile-view.jpg' width="40%">
