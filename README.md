@@ -11,7 +11,7 @@ User who are interested to adopt a Pet are welcome to search through the listed 
 
 Details like Pet name, Pet Category, Gender, Age, Color and Description, Person to Contact and Contact Information will be displayed in individual search result.
 
-The website is deployed in Heroku with the link below:
+The website is deployed in Heroku with the link below:<br>
 https://nyt-animal-adoption.herokuapp.com
 
 ## Project Strategy
@@ -49,7 +49,9 @@ Based on the user stories and organizational goals identified, these are the fol
 
 ## Project Structure
 ### Wire Frame
-The wireframe can be viewed in the link below:
+The wireframe can be viewed in the link below:<br>
+
+https://drive.google.com/open?id=1xsc_XBIw-rvYmFrndc5VmkhFExPX9v_K
 
 ### ER Diagram
 <img src = "static/image/ER_Diagram1.jpg">
@@ -120,7 +122,7 @@ The websites are tested on mobile phone and desktop. In addition, the pages are 
 ![Image](https://github.com/Jasonngyt/A-Helping-Paw/blob/master/static/image/desktop-view.jpg)
 
 #### Website Mobile View
-<img src='static/image/mobile-view.jpg' width="30%">
+<img src='static/image/mobile-view.jpg' width="40%">
 
 #### Browser Compatibility
 The application was tested on Firefox and Google Chrome. Both pages functioned satisfactorily on both browsers.
