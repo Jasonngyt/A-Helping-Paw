@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">A Helping Paw</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">Give the pet a Home and a chance in your life. <br> Search for the pet below.</h2>
+        
+        <div class="container-fuid d-flex justify-content-center">
+        <!--Form for user to search for their pets through Pet Category-->
+          <form action="{{url_for('showsearch')}}" method="POST">
+
+            <div class="row d-flex justify-content-center">
+
+                <!-- Textbox to key in the Pet to search -->
+                <input id="searchPetCat" name="searchPetCat" type="text"  placeholder="dog, cat, bird, ..." required>
+
+                <!-- Button to search for Pet -->
+                <button type="submit" name="action" class="btn btn-primary">Search</button>
+
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-white mb-4">About Us</h2>
+          <p class="text-white-50"> 
+              Pets are abandoned every day. In 2011, there were 7,081 animals– up to 50 per cent were unwanted or abandoned pets. 3,169 were domestic pets like dogs, cats, rabbits, hamsters and guinea pigs often abandoned at void decks. Many animals are left at a shelter
+              homes. Many shelter homes unable to cope with the increased number of incoming animals, due to a lack of space and limted financial resources.<br><br> A Helping Paw was establised in 2017 in mission to help
+              these poor animals to find a new Home. We strongly believe these animals deserve a second chance at life. We provided a FREE Advertisement Space to Shelter Homes and Pet Owner to post the profile of the animals. <br><br> We believe
+              that YOU who is searching for a buddy in your life can provide them a safe and comfortable Home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Information to user on the factors to consider before adoption-->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="{{ url_for('static', filename='image/girl_rabbit.jpg')}}">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Things to Think About Before You Decide to Adopt</h4>
+            <p class="text-black-50 mb-0">
+              Owning an animal is a significant responsibility and one which needs to be properly thought through. Being a responsible pet owner means taking care of all the animal’s day-to-day needs, giving them lots of love, affection, and attention and making sure
+              they receive proper veterinary care when they fall ill. You need to consider whether you have the time, space, energy and passion it takes to provide a pet with a forever home where they will be happy and healthy. <br><br>                            If you are keen on our pet adoption program, you can start your search for your buddy by reading the pet profiles we have listed below. Each individual profile lists the animal’s name, sex and estimated age as well as a little
+              bit about their temperament and idiosyncrasies. If you are interested in a particular pet, simply contact the number or email provided beside each profile.
+                        
+            </p>
+          </div>
+        </div>
+      </div>
+      
+       <!--Information to user on why adoption is better then purchasing a pet from store-->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/demo-image-02.jpg" alt="">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">4 Reasons to Adopt A Pet Than Buy One</h4>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1st Reason -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="{{ url_for('static', filename='image/bulldog.jpg')}}">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Don’t Just Save One Life, Save Two Instead</h4>
+                <p class="mb-0 text-white-50">
+                  As much as animal shelters want to provide the best, there is only so much they can do. Most animal shelters run out of space every day. Too many pets come into shelters and too few people consider pet adoption. It’s a hard pill to swallow to know that
+                  pets that are less likely adopted are usually euthanised. Animal shelters simply cannot afford to house all of them in a limited space. When you plan to get a pet, choose to adopt instead. Not only do you provide a pet
+                  with a second chance as an additional family member, but you also free up shelter space for another pet’s desperate need.
+                </p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2nd Reason -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="{{ url_for('static', filename='image/cute_cat.jpg')}}">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Adopted Pets Are Not Bad, Old Or Unhealthy</h4>
+                <p class="mb-0 text-white-50">
+                   It is important to understand that most pets wind up in shelters due to external factors. More often than not, the prevailing reasons for pets in shelters are due to abuse, financial constraints, relocation and abandonment. Another common misconception
+                   of shelter pets is that they are old and unhealthy. However, that is not usually the case! <br><br> Most animal shelters in Singapore have a professional veterinarian to tend to the pets’
+                   health conditions. Aside from receiving yearly examinations, the pets are also regularly vaccinated, neutered and fed. When you adopt, you actually give a healthy pet a new home in return.
+                </p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3rd Reason -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="{{ url_for('static', filename='image/parrot_grey.jpg')}}">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Cost-Friendly</h4>
+                <p class="mb-0 text-white-50">
+                   Simply put, adoption is easier on your pocket than buying a pet. Animal shelters already take care of microchipping and spaying/neutering during the adoption. Rather than buying a pet that requires to be taken to the vet for vaccinations, you save money
+                   by having the first round of vaccination for your pet at the shelter. Furthermore, many of the pets in shelters are already house-trained and used to living with families. When you adopt, you not only save the upfront medical
+                   costs but you also save on housebreaking and training expenses.
+                </p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 4th Reason -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="{{ url_for('static', filename='image/rabbit.jpg')}}">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Stop Irresponsible Breeding</h4>
+                <p class="mb-0 text-white-50">
+                  When you buy a pet from a pet store, be it a dog or a cat, you can never be certain if they are spawned from irresponsible breeders. Often known as a puppy/kitten mill, these organisations put profit above the welfare of animals. They have no care in
+                  the world for the well-being of the pets they take in. Time and again, these breeding facilities keep pets in shockingly tiny, wired cages. After which, they force the caged-up pets to breed repeatedly. These pets do not
+                  have the vaguest clue of what human companionship is with little hope of ever joining a family. <br><br> When the pets are no longer profitable, they are simply discarded – routinely abandoned
+                  or killed. The correlation between these irresponsible breeders and pet stores is that most pet stores are in the dark as to where they are getting their pets. When you adopt, not only do you find yourself a new furry friend,
+                  you also do your part to deter these irresponsible breeders profiting from their ill-advised ethics.
+                </p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Signup Section -->
+  <section id="signup" class="signup-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto text-center">
+
+          <h2 class="text-white mb-5">Do you have a pet to let go? <br> Sign up an Account to add Advertisment</h2>
+          <!--Buttton foruser to go to Sign Up page-->
+          <button type="button" onclick="window.location.href='{{url_for('add_user')}}'" class="btn btn-primary mx-auto">Sign Up</button>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

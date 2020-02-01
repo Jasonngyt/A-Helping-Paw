@@ -19,7 +19,7 @@ mongo = PyMongo(app)
 # Search for the advertisment
 @app.route('/mysearch')
 def mysearch():
-    return render_template("SearchPage.html", pet=mongo.db.pet.find(), user=list(mongo.db.user.find()))
+    return render_template("index.html", pet=mongo.db.pet.find(), user=list(mongo.db.user.find()))
 
 # Display the search Result
 @app.route('/showsearch', methods=['POST'])
