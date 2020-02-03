@@ -126,6 +126,7 @@ The websites are tested on mobile phone and desktop. In addition, the pages are 
 #### Browser Compatibility
 The application was tested on Firefox and Google Chrome. Both pages functioned satisfactorily on both browsers.
 
+#### Manual Testing
 | Test Case(s) | Test Description | Outcome | Result |
 | --- | --- | --- | --- |
 | 1 | Access the Homepage.<br><br> Click on About Us, 4 Reasons to Adopt a Pet Than Buy One, Things to Think About Before You Decide to Adopt individually. <br><br> The tab should expand and display the details. The other two tabs should collapse when one tab is expanded. | Each tab expand and collapse as per the requirement. | Pass <br> |
