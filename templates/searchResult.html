@@ -25,33 +25,46 @@
           </form>
         </div>
 
-    <h5>
         <div class="container p-3 bg-light">
-
+      
             <!-- Display the search based on Pet Category  -->
             {% for num in pet %}
                 <div class="border p-4">
-                    Advertisement ID: {{num._id}} <br> 
-                    Pet Name: {{num.petName}} <br> 
-                    Pet Category: {{num.petCat}} <br> 
-                    Gender: {{num.gender}} <br> 
-                    Color: {{num.color}} <br> 
-                    Age: {{num.age}} <br> 
-                    Description: {{num.description}}<br><br> 
-
-                    <!-- Display the person to contact if the ID of the User Collection match the user ID in the Pet Collection -->
-                    {% for row in user %} 
-                        {% if num.user_id == row._id %} 
-                            Posted by: {{ row.userName }}<br> 
-                            Email: {{ row.userEmail }}<br> 
-                            Contact: {{ row.userContact }}<br><br>
-                        {% endif %} 
-                    {% endfor %}
+                    <div class='d-flex flex-row'>
+                        <div class='col-sm-12 col-md-5'>
+                            Name:     <h5> {{num.petName}} </h5><br> 
+                            Category: <h5> {{num.petCat}} </h5><br> 
+                            Gender:   <h5> {{num.gender}} </h5><br> 
+                            Color:    <h5> {{num.color}} </h5><br> 
+                            Age:      <h5> {{num.age}} </h5><br> 
+                            
+                        </div>
+                        
+                        <div class='col-sm-12 col-md-7'>
+                            <h5>Description:<br><br> {{num.description}}<br><br> 
+                        </div>
+                        
+                    </div>
+                    <div class='d-flex flex-row border bg-secondary text-white'>
+                        <!-- Display the person to contact if the ID of the User Collection match the user ID in the Pet Collection -->
+                        {% for row in user %} 
+                            {% if num.user_id == row._id %}
+                                <div class='col-sm-4'>
+                                    Posted by: <h5> {{ row.userName }} </h5>
+                                </div>
+                                <div class='col-sm-4'>
+                                    Email: <h5> {{ row.userEmail }} </h5>
+                                </div>
+                                <div class='col-sm-4'>
+                                    Contact: <h5> {{ row.userContact }} </h5>
+                                </div>
+                            {% endif %} 
+                        {% endfor %}
+                    </div>
                 </div>
             {% endfor %}
 
         </div><br>
-    </h5>
 
 </section>
 
