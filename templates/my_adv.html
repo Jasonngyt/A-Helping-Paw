@@ -9,12 +9,24 @@
 
         <!--Display the advertisment posted by user based on User ID-->
         <form action="{{url_for('update_adv')}}" method="POST">
-
+            
+            
+            <!-- Display No Advertisement. Prompt User to add Advertisment-->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                      {{ message }}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            
             {% for num in pet%}
             <div class="border">
                 <div>
                     <h3>My Advertisement<br></h3>
                 </div>
+                
                 <h5>
                     <!-- Hide the user ID and advertisment ID to prevent user to amend it -->
                     <input id="adv_id" name="adv_id" type="text" value='{{num._id}}' class="d-none"><br>

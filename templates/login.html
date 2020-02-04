@@ -9,7 +9,7 @@
           
           <!-- Image of Pet Dog. Display in laptop view, hide in mobile view -->
           <div class="mt-5 d-none d-md-block">
-            <image src ="{{ url_for('static', filename='image/dog.jpg')}}" width="250" height="300">
+            <image src ="{{ url_for('static', filename='image/dog.jpg')}}" width="320" height="400">
           </div>
           
           <div class="bg-light p-5 mt-5 text-center">
@@ -20,7 +20,20 @@
           
                     <h5><input  id="login" name="login" type="text" required></h5><br>
                 
-                    <button type="submit" name="action" class="btn btn-primary mx-auto">Login</button>
+                    <button type="submit" name="action" class="btn btn-primary mx-auto">Login</button><br><br>
+                    
+                    <!-- Flash message for Invalid User -->
+                    <strong>
+                      {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          {% for message in messages %}
+                            {{ message }}
+                          {% endfor %}
+                        {% endif %}<br><br>
+                      {% endwith %}
+                    </strong>
+                    
+                    <p>Don't have an account? <a href="{{url_for('add_user')}}"> Sign up here </a> to add advertisment.</p>
             </form>
           </div>
         </div>

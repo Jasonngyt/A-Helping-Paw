@@ -10,7 +10,7 @@
 
         <!-- Image of Pet Cat. Display in laptopview, hide in mobile view -->
         <div class="mt-5 d-none d-md-block">
-            <image src="{{ url_for('static', filename='image/cat.jpg')}}" width="450" height="530">
+            <image src="{{ url_for('static', filename='image/cat.jpg')}}" width="480" height="650">
         </div>
 
         <div class="bg-light p-3 mt-5">
@@ -35,7 +35,21 @@
                 </h5>
 
                 <!--Button to add new user account-->
-                <button type="submit" name="action" class="btn btn-primary mx-auto">Sign Up</button>
+                <button type="submit" name="action" class="btn btn-primary mx-auto">Sign Up</button><br><br>
+                
+                <!-- Flash message for Existing User Name-->
+                <strong>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          {% for message in messages %}
+                            {{ message }}
+                          {% endfor %}
+                        {% endif %}<br><br>
+                    {% endwith %}
+                </strong>
+                
+                <p>Existing User? <a href="{{url_for('login')}}"> Log in here. </a></p>
+                
             </form>
         </div>
     </div>

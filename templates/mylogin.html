@@ -9,7 +9,7 @@
 
         <!-- Image of Pet Bird. Display in laptop view, hide in mobile view -->
         <div class="mt-5 d-none d-md-block">
-            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="410" height="570">
+            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="410" height="620">
         </div>
 
         <div class="bg-light p-3 mt-5">
@@ -33,14 +33,21 @@
                     <input id="myContact" name="myContact" type="tel" value={{num.userContact}} class="form-control" required><br><br>
                 </h5>
 
-                <!--Button for user to update their particular-->
-                <button type="submit" name="action" class="btn btn-primary mx-auto">Update My Details</button>&nbsp &nbsp
-
-                <!--Button for user to add in new Advertisement-->
-                <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>&nbsp &nbsp
-
-                <!--Button for user to view their Advertisement-->
-                <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button> {% endfor %}
+                <div>
+                    <!--Button for user to update their particular-->
+                    <button type="submit" name="action" class="btn btn-primary mx-auto">Update My Details</button>&nbsp &nbsp
+    
+                    <!--Button for user to add in new Advertisement-->
+                    <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>&nbsp &nbsp
+                </div><br>
+                
+                <div>
+                    <!--Button for user to view their Advertisement-->
+                    <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button>&nbsp &nbsp 
+                    
+                    <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary mx-auto">Log Out</button>
+                </div>
+                {% endfor %}
             </form>
         </div>
     </div>
