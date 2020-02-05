@@ -85,7 +85,8 @@ def add_adv(user_id):
 @app.route('/insert_adv/', methods=['POST'])
 def insert_adv():
     mongo.db.pet.insert_one({"user_id": ObjectId(request.form.get('userID')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
-    return redirect(url_for('mysearch'))
+    mypet1=mongo.db.pet.find({"user_id": ObjectId(request.form.get("userID"))})
+    return render_template("my_adv.html", pet=mypet1)
 
 
 
@@ -115,6 +116,7 @@ def mylogin():
 def update_user():
     query = {'_id':ObjectId(request.form.get('user_id'))}
     mongo.db.user.update(query, {"userName": request.form.get('myName'), "userEmail": request.form.get('myEmail'), "userContact": request.form.get('myContact')} )
+    flash('Details Update Successfully.')
     myuser=mongo.db.user.find({"userName": request.form['myName']})
     return render_template("mylogin.html", user=myuser)
 
@@ -139,7 +141,9 @@ def my_adv(user_id):
 def update_adv():
     query = {'_id':ObjectId(request.form.get('adv_id'))}
     mongo.db.pet.update(query, {"user_id": ObjectId(request.form.get('user_id')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
-    return redirect(url_for('mysearch'))
+    mypet1=mongo.db.pet.find({"user_id": ObjectId(request.form.get("user_id"))})
+    flash('Advertisment Update Successfully.')
+    return render_template("my_adv.html", pet=mypet1) 
       
       
       
@@ -154,7 +158,7 @@ def delete_adv(adv_id):
 def delete_adv2(): 
     adv_id=request.form.get('adv_id')
     mongo.db.pet.remove({'_id': ObjectId(adv_id)})
-    return redirect(url_for('mysearch'))
+    return redirect(url_for('login'))
     
     
     

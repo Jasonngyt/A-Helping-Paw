@@ -9,12 +9,13 @@
 
         <!-- Image of Pet Bird. Display in laptop view, hide in mobile view -->
         <div class="mt-5 d-none d-md-block">
-            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="410" height="620">
+            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="480" height="650">
         </div>
 
         <div class="bg-light p-3 mt-5">
             <!--Form that display the particular of the user-->
             <form action="{{url_for('update_user')}}" method="POST">
+                
                 {% for num in user%}
                 <h5>
                     <!-- Hide the user ID to prevent user to amend it -->
@@ -45,9 +46,22 @@
                     <!--Button for user to view their Advertisement-->
                     <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button>&nbsp &nbsp 
                     
-                    <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary mx-auto">Log Out</button>
+                    <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary" style="width:250px">Log Out</button>
                 </div>
                 {% endfor %}
+                <br>
+                
+                <!-- Flash message to tell user their particular updates successfully -->
+                <strong>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </strong>
+                
             </form>
         </div>
     </div>
