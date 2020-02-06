@@ -4,7 +4,7 @@
 
 
 <section id="signup" class="signup-section">
-
+<br><br>
     <div class="container bg-light pt-3 pb-3 mt-5">
 
         <!--Display the advertisment posted by user based on User ID-->
@@ -56,6 +56,8 @@
 
             <!--Button for user to go to Delete Advertisement page-->
             <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class="btn btn-primary mx-auto">Delete</button>
+            
+            <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary mx-auto">Log Out</button>
             {% endfor %}
             
             <br><br>

@@ -86,7 +86,7 @@ def add_adv(user_id):
 def insert_adv():
     mongo.db.pet.insert_one({"user_id": ObjectId(request.form.get('userID')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
     mypet1=mongo.db.pet.find({"user_id": ObjectId(request.form.get("userID"))})
-    return render_template("my_adv.html", pet=mypet1)
+    return render_template("my_adv.html", pet=mypet1) 
 
 
 

@@ -27,7 +27,7 @@
 
         <div class="container p-3 bg-light">
      
-            <!-- Display No Search Result. Prompt User to Search again-->
+            <!-- Display No Search Result. Prompt User to Search -->
             {% with messages = get_flashed_messages() %}
               {% if messages %}
                 {% for message in messages %}
@@ -57,13 +57,13 @@
                         <!-- Display the person to contact if the ID of the User Collection match the user ID in the Pet Collection -->
                         {% for row in user %} 
                             {% if num.user_id == row._id %}
-                                <div class='col-sm-4'>
+                                <div class='col-md-4 col-sm-12'>
                                     Posted by: <h5> {{ row.userName }} </h5>
                                 </div>
-                                <div class='col-sm-4'>
+                                <div class='col-md-4 col-sm-12'>
                                     Email: <h5> {{ row.userEmail }} </h5>
                                 </div>
-                                <div class='col-sm-4'>
+                                <div class='col-md-4 col-sm-12'>
                                     Contact: <h5> {{ row.userContact }} </h5>
                                 </div>
                             {% endif %} 
