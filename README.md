@@ -41,7 +41,8 @@ Based on the user stories and organizational goals identified, these are the fol
 3) There will be a Sign Up Page for Shelter Home and Pet Owner to register an account. After they register their account, they will be able to access it via user name in the Login Page.
 
 
-4) After logging into their account, they will be able to: <br>
+4) A very simple login feature is created to allow on the account holder login their acoount to delete and amend their own advertisment. There is no requirement for any password or other security feature.
+   After logging into their account, they will be able to: <br>
     a) post new advertisements. <br>
     b) view all the advertisement that they posted. <br>
     c) edit their advertisement. <br>
@@ -68,34 +69,35 @@ The edit and delete function of the pet is based on the _id of the pet collectio
 
 ## Project Skeleton
 ### Existing Features
-Layout of the homepage is kept simple and user friendly. Important information will standout due to the plain layout. 3 main informations are displayed on the Home page.
+The Design and CSS of the webpage is created using Bootstrap Starter Template, <a href = "https://startbootstrap.com/themes/grayscale/">Grayscale.</a><br>
+3 main informations are displayed on the Home page.
 1) About Us - This give user on the background of the website.
 2) 4 Reasons to Adopt a Pet Than Buy One -  This educate user on the benefit of adopting a pet than buying them from store.
 3) Things to Think About Before You Decide to Adopt - This prepare user on the consideration factor before any pet adoption. 
 
 In the homepage, users are able to search for the pet that they wish to adopt.There is a text box for customers to enter the type of pet that they wish to adopt. The search button will trigger the search and list out all the pets that match that Pet Category. The following details such as Pet Name, Category, Gender, Color, Age and Description  will be displayed in Search Result. The contact person and contact information such as email and number in another collection will also be displayed. The 2 collections in MongoDB are linked by User ID. 
 
-Shelter Home and Pet Owners need to create an account before they can post any advertisement. In the Sign Up page, they need to provide the user name, email address and contact number to create the account.
+Shelter Home and Pet Owners need to create an account before they can post any advertisement. In the Sign Up page, they need to provide the user name, email address and contact number to create the account. The user name has to be unique as the user will log in via username. The user will be prompt to sign up with a different user name if there is an existing user name.
 
-In the Login page, account holder need to enter their user name to log into their account. When account holder click the Login Button, contact information linking to the user name will be displayed. The account holder is able to edit their contact details and update by clicking on Update My Details Button. 
+In the Login page, account holder needs to enter their user name to log into their account. They will be prompt to enter a valid user name if the user name does not match with any user name in the user collection. After account holder login into their account, contact information such as email and contact number linking to the user name will be displayed. The account holder is able to edit their contact details and update by clicking on Update My Details Button. 
 
-When the account holder clicks on Add Advertisement Button, they will be directed to New Advertisement Page. They are able to post advertisement of the Pet that needs a new Home. They need to provide Pet Name, Category, Gender, Color, Age and Description of the animals when posting the advertisement.
+When the account holder clicks on Add Advertisement Button, they will be directed to New Advertisement Page. They are able to post new advertisement of the Pet that needs a new Home. They need to provide Pet Name, Category, Gender, Color, Age and Description of the animals when posting the advertisement.
 
 The account holder is able to view all the advertisements that they posted online when they click on the My Advertisement Button.
 
-In  My Advertisement Page, the account holder is able to edit and delete the advertisement.
+In  My Advertisement Page, the account holder is able to edit and delete their advertisement.
 
 ### Features to implement in the future
 I wish to add additional feature for the Shelter Home and Pet Owner to upload picture of the Pet so that it can attract more users to view the advertisement. 
 
 ## Project Surface
-The theme that I wished to present is simple and user-friendly website.
+The theme that I wished to present is cool and user-friendly website.
 
 ### Colours
 * White, Grey and Black are main colors chosen for the website. 
 * White - The White background give the website a clean and pure look. 
-* Black - The Black cute animal cartoon in the background match the theme of the Pet adoption. It lightens the mood of the website in this serious topic. 
-* Grey - The Grey color in the navigation bar and button balance and neutralize the contrast between the White and Black color.
+* Black - The Black cute animal cartoon in the background match the theme of the Pet adoption. It lightens the mood of the website in this serious topic. The black color also brings out the cool theme. 
+* Grey - The Grey color in the background balance and neutralize the contrast between the White and Black color.
 
 ### Logo
 The logo of the website is a Dog Paw enclosed in a Red Heart shape. 
@@ -105,7 +107,7 @@ The Dog Paw fit the title of the website, A Helping Paw. We offer A Helping Hand
 The Heart Shape enclosing the Paw represents the Love we have for our Pets and our protection (Home) towards them.
 
 ### Technologies Used
-* HTML4.0, Python and CSS3 were the main language used in this project.
+* HTML4.0, Python, Javascript and CSS3 were the main language used in this project.
 * Bootstrap was used to make the website mobile responsive.
 * Cloud9 was used as the IDE for building the website.
 * Repository was hosted on GitHub.
@@ -113,6 +115,30 @@ The Heart Shape enclosing the Paw represents the Love we have for our Pets and o
 * The website are deployed in Heroku.
 
 ### Testing
+
+#### Manual Testing
+| Test Case(s) | Test Description | Result |
+| --- | --- | --- |
+| 1 | Access the Home page. Click on Home page, Login and Sign Up link in the navigation bar. It should bring you the respective web page. <br><br>| Pass <br>|
+| 2 | In the Homepage, enter the animal to be search (for example. dog, cat, bird, hamster or rabbit) and click the Search Button. All advertisements with search keyword in petCat will be display. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email are shown. | Pass  <br> |
+| 3 | In the Sign Up Page, click on the link for existing user below the Sign Up Button. It will be directed to the Login Page. <br><br>| Pass  <br>|
+| 4 | In the Sign Up Page, sign up account with an existing user name (for example. Charlotte, Johnny, Paul, Jimmy or Linda). <br><br> User will be prompt to sign up with a diiferent user name as there is an existing user. <br><br> The account will not be created.| Pass  <br> |
+| 5 | In the Sign Up Page, click on the Sign Up Button while leaving the boxes empty. There will be an error message prompting you to enter the required information. Error message will also be prompt if email is not correctly entered. | Pass  <br> |
+| 6 | In the Sign Up Page, enter a new User Name, Email and Contact Number and click on the Sign Up Button. New Account will be created. <br><br>  It will direct to My Login page which shown User Name, Email Address and Contact Number. | Pass  <br> |
+| 7 | In the Login Page, click on the link to sign up below the Log In Button. It will be directed to the Sign Up Page. <br><br>| Pass  <br>|
+| 8 | In the Login Page, enter an invalid user name and click Login Button. (for example, Tarzan or Tonny) The user will be prompt with Invalid User Name and ask to sign in with valid user name. <br><br> | Pass  <br> |
+| 9 | In the Login Page, enter a valid user name and click Login Button. (for example. Charlotte, Johnny, Paul, Jimmy or Linda). The user will be able to login. The name, email and contact will be displayed. <br><br> | Pass <br> |
+| 10 | After logging in, correct user details such as user name, email and contact number are displayed <br><br>| Pass  <br>|
+| 11 | After logging in, change the contact number and click Update Details Button. The user contact number is updated. Message "Details update successfully" will be shown. <br><br>| Pass  <br>|
+| 12 | After logging in, click on My Advertisement Button. Error message "You do not have any existing Advertisment. Please go back to add new Advertisment." willbe prompt as the new user do not have any existing Advertisement <br><br>| Pass  <br>|
+| 13 | After logging in, click on Add Advertisement Button. The web page will be directed to the Add Advertisement page. <br><br> Enter the details and click on Add Advertisement Button. New Advertisement is added. <br><br> | Pass  <br>|
+| 14 | In the Add Advertisement page, leave the boxes empty and click Add Advertisement Button. Error message will prompt the user to enter the required information. <br><br>| Pass  <br> |
+| 15 | After logging in, click on My Advertisement Button. All the advertisements posted by the user are be displayed. <br><br> | Pass <br> |
+| 16 | After logging in, click on the Log Out Button. The page will be directed to the Login Page. <br><br> | Pass <br> |
+| 17 | In My Advertisement page, change details such as the Pet Name and click on Update Advertisement Button. <br><br> The advertisement is be updated. | Pass <br> |
+| 18 | In My Advertisement page, click on Delete Button to delete the advertisement. <br><br> The advertisement is deleted. | Pass  <br> |
+| 19 | In My Advertisement page, click on Log Out Button. The page will be directed to the Home page. <br><br> | Pass <br> |
+| 10 | The website is tested for responsive with mobile, desktop and with different browser. <br><br> The layout in desktop and mobile view should match the Wire Frame. In mobile view, the animal picture in Sign Up and Login pages are not shown as per wire frame. | Pass  <br> |
 
 #### Responsiveness
 The websites are tested on mobile phone and desktop. In addition, the pages are tested using different viewport under the inspector tool. The site is fully responsive - it's mobile and desktop-friendly.
@@ -125,20 +151,6 @@ The websites are tested on mobile phone and desktop. In addition, the pages are 
 
 #### Browser Compatibility
 The application was tested on Firefox and Google Chrome. Both pages functioned satisfactorily on both browsers.
-
-#### Manual Testing
-| Test Case(s) | Test Description | Outcome | Result |
-| --- | --- | --- | --- |
-| 1 | Access the Homepage.<br><br> Click on About Us, 4 Reasons to Adopt a Pet Than Buy One, Things to Think About Before You Decide to Adopt individually. <br><br> The tab should expand and display the details. The other two tabs should collapse when one tab is expanded. | Each tab expand and collapse as per the requirement. | Pass <br> |
-| 2 | Click on Home page, Login and Sign Up Button in the navigation bar. It should bring you the respective web page. | All buttons function as per requirement. The buttons direct to the correct webpage. | Pass |
-| 3 | In the Homepage, enter the animal to be search (for example. dog or cat) and click the Search Button. All advertisements with dog or cat in petCat will be display. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email should be properly displayed. | The search results display as per the search keyword. <br><br> Details such Pet Name, Age, Color, Pet Category, Description, Contact Person, Contact Number and Email are properly displayed. | Pass  <br> |
-| 4 | In the Sign Up Page, enter the User Name, Email and Contact Number and click on the Sign Up Button. New Account will be created. <br><br> Try to click on the Search while leaving the boxes empty. There will be an error message prompting you to enter the required information. Error message will also be prompt if email is not correctly entered. | The User Account is created when user click the Sign up Button. This can be verified when user login with the registered User Name. <br><br> Error message is prompted when the boxes are empty and email not correctly entered | Pass  <br> |
-| 5 | In the Login Page, when the user enter the user name and click Login Button. (for example, Johnny or Jane) The user name, email and contact will be displayed. <br><br> Change the contact number and click on Update My Details Button. The user contact is updated. | Correct user details are displayed when user entered their user name and clicked Login Button. <br><br>The user is able to update the contact number and other information. The changes are observed when the user login again. | Pass  <br> |
-| 6 | After logging in, click on My Advertisement Button. All the advertisement posted by the user should be displayed. | All the advertisements posted by the user are displayed. | Pass  <br> |
-| 7 | After logging in, click on Add Advertisement Button. The web page will be directed to the Add Advertisement page. <br><br> Enter the details and click on Add Advertisement Button in Add Advertisement page. New Advertisement should be added. <br><br> Leave the boxes empty and click Add Advertisement Button. Error message will prompt the user to enter the required information. | The web page are directed to Add Advertisement page. <br><br> New Advertisement are added. The new advertisement are displayed when user clicked on My Advertisement Button. <br><br> Error message are shown when the boxes are left empty. | Pass  <br> |
-| 8 | In My Advertisement page, change details such as the Pet Name and click on Update Advertisement Button. <br><br> The advertisement should be updated. | The advertisement is updated. Changes are verified when user clicked on My Advertisement Button to view their advertisement. | Pass <br> |
-| 9 | In My Advertisement page, click on Delete Button to delete the advertisement. <br><br> The advertisement should be deleted. | The advertisement is deleted. <br><br> The deleted advertisement is not shown when user clicked on My Advertisement Button. | Pass  <br> |
-| 10 | The website is tested for responsive with mobile, desktop and with different browser. <br><br> The layout in desktop and mobile view should match the Wire Frame. | The website is mobile responsive with mobile, desktop and with different browser. <br><br> The layout in desktop and mobile view match the Wire Frame. The animal picture in Sign Up and Login pages are not shown as per wire frame. | Pass  <br> |
 
 #### Problems Encountered/Bugs solved
 * I was unable to edit the advertisement in the first place. After going through similar problems in Stackoverflow, I realized I forget to put in condition for Mongodb to refer to for the collection to be amended.
@@ -180,3 +192,5 @@ This project was deployed to Heroku.
 * The background image is taken from <a href ='https://www.freepik.com'> Freepik </a>
 * The problems are resolved with reference to similar problems faced by other programmer in <a href = 'https://stackoverflow.com/'>Stackoverflow</a> as well as advice from lecturers.
 * The styling and features were made with reference to the tutorial from <a href='https://www.w3schools.com'>W3schools</a>.
+* The simple login feature is heavily modified from <a href = "https://github.com/PrettyPrinted/mongodb-user-login">PrettyPrinted Github Code</a>
+* The Design and CSS is modified from Bootstrap Starter Template, <a href = "https://startbootstrap.com/themes/grayscale/">Grayscale.</a>
