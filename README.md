@@ -55,7 +55,7 @@ The wireframe can be viewed in the link below:<br>
 https://drive.google.com/open?id=1xsc_XBIw-rvYmFrndc5VmkhFExPX9v_K
 
 ### ER Diagram
-<img src = "static/image/ER_Diagram1.jpg">
+<img src = "Readme/image/ER_Diagram1.jpg">
 
 When the user sign up for an account, _id will be auto-generated in the user collection.
 
@@ -65,7 +65,7 @@ The Search is based on the petCat in pet collection. The user_id in the pet coll
 
 The edit and delete function of the pet is based on the _id of the pet collection. <br>
 
-<img src = "static/image/ER_Diagram2.jpg">
+<img src = "Readme/image/ER_Diagram2.jpg">
 
 ## Project Skeleton
 ### Existing Features
@@ -144,10 +144,10 @@ The Heart Shape enclosing the Paw represents the Love we have for our Pets and o
 The websites are tested on mobile phone and desktop. In addition, the pages are tested using different viewport under the inspector tool. The site is fully responsive - it's mobile and desktop-friendly.
  
 #### Website Desktop View
-<img src = 'static/image/desktop-view.jpg'>
+<img src = 'Readme/image/desktop-view.jpg'>
 
 #### Website Mobile View
-<img src='static/image/mobile-view.jpg' width="40%">
+<img src='Readme/image/mobile-view.jpg' width="40%">
 
 #### Browser Compatibility
 The application was tested on Firefox and Google Chrome. Both pages functioned satisfactorily on both browsers.
