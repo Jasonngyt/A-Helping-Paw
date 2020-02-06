@@ -138,7 +138,7 @@ The Heart Shape enclosing the Paw represents the Love we have for our Pets and o
 | 17 | In My Advertisement page, change details such as the Pet Name and click on Update Advertisement Button. <br><br> The advertisement is be updated. | Pass <br> |
 | 18 | In My Advertisement page, click on Delete Button to delete the advertisement. <br><br> The advertisement is deleted. | Pass  <br> |
 | 19 | In My Advertisement page, click on Log Out Button. The page will be directed to the Home page. <br><br> | Pass <br> |
-| 10 | The website is tested for responsive with mobile, desktop and with different browser. <br><br> The layout in desktop and mobile view should match the Wire Frame. In mobile view, the animal picture in Sign Up and Login pages are not shown as per wire frame. | Pass  <br> |
+| 20 | The website is tested for responsive with mobile, desktop and with different browser. <br><br> The layout in desktop and mobile view should match the Wire Frame. In mobile view, the animal picture in Sign Up and Login pages are not shown as per wire frame. | Pass  <br> |
 
 #### Responsiveness
 The websites are tested on mobile phone and desktop. In addition, the pages are tested using different viewport under the inspector tool. The site is fully responsive - it's mobile and desktop-friendly.
