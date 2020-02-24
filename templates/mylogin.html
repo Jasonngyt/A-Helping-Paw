@@ -34,19 +34,25 @@
                     <input id="myContact" name="myContact" type="tel" value={{num.userContact}} class="form-control" required><br><br>
                 </h5>
 
-                <div>
-                    <!--Button for user to update their particular-->
-                    <button type="submit" name="action" class="btn btn-primary mx-auto">Update My Details</button>&nbsp &nbsp
-    
-                    <!--Button for user to add in new Advertisement-->
-                    <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>&nbsp &nbsp
-                </div><br>
+                <div class = "row text-center">
+                    <div class = "col-12-sm, col-6-md m-2">
+                        <!--Button for user to update their particular-->
+                        <button type="submit" name="action" class="btn btn-primary mx-auto">Update My Details</button>&nbsp &nbsp
+                    </div>
+                    <div class = "col-12-sm, col-6-md m-2">
+                        <!--Button for user to add in new Advertisement-->
+                        <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>&nbsp &nbsp
+                    </div>
+                </div>
                 
-                <div>
+                <div class = "row text-center">
+                    <div class = "col-12-sm, col-6-md m-2">
                     <!--Button for user to view their Advertisement-->
-                    <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button>&nbsp &nbsp 
-                    
-                    <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary" style="width:250px">Log Out</button>
+                        <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button>&nbsp &nbsp 
+                    </div>
+                    <div class = "col-12-sm, col-6-md m-2">
+                        <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary" style="width:250px">Log Out</button>
+                    </div>
                 </div>
                 {% endfor %}
                 <br>
