@@ -39,13 +39,13 @@
             <!-- Display the search based on Pet Category  -->
             {% for num in pet %}
                 <div class="border p-4">
-                    <div class='d-flex flex-row'>
-                        <div class='col-sm-12 col-md-5'>
+                    <div class='row'>
+                        <div class='col-sm-12 col-md-5 text-capitalize'>
                             Name:     <h5> {{num.petName}} </h5><br> 
                             Category: <h5> {{num.petCat}} </h5><br> 
                             Gender:   <h5> {{num.gender}} </h5><br> 
                             Color:    <h5> {{num.color}} </h5><br> 
-                            Age:      <h5> {{num.age}} </h5><br> 
+                            Age:      <h5> {{num.age}} </h5>
                         </div>
                         
                         <div class='col-sm-12 col-md-7'>
@@ -53,26 +53,26 @@
                         </div>
                         
                     </div>
-                    <div class='d-flex flex-row border bg-secondary text-white'>
-                        <!-- Display the person to contact if the ID of the User Collection match the user ID in the Pet Collection -->
-                        {% for row in user %} 
-                            {% if num.user_id == row._id %}
-                                <div class='col-md-4 col-sm-12'>
-                                    Posted by: <h5> {{ row.userName }} </h5>
-                                </div>
-                                <div class='col-md-4 col-sm-12'>
-                                    Email: <h5> {{ row.userEmail }} </h5>
-                                </div>
-                                <div class='col-md-4 col-sm-12'>
-                                    Contact: <h5> {{ row.userContact }} </h5>
-                                </div>
-                            {% endif %} 
-                        {% endfor %}
-                    </div>
                 </div>
+                <div class='row border bg-secondary text-white'>
+                    <!-- Display the person to contact if the ID of the User Collection match the user ID in the Pet Collection -->
+                    {% for row in user %} 
+                        {% if num.user_id == row._id %}
+                            <div class='col-sm-12 col-md-4'>
+                                Posted by: <h5> {{ row.userName }} </h5>
+                            </div>
+                            <div class='col-sm-12 col-md-4'>
+                                Email: <h5> {{ row.userEmail }} </h5>
+                            </div>
+                            <div class='col-sm-12 col-md-4'>
+                                Contact: <h5> {{ row.userContact }} </h5>
+                            </div>
+                        {% endif %} 
+                    {% endfor %}
+                </div><br><br><br>
             {% endfor %}
 
-        </div><br>
+        </div>
 
 </section>
 

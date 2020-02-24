@@ -32,6 +32,7 @@ def mysearch():
 def showsearch():
     
     mykeyword = request.form.get('searchPetCat')
+    mykeyword = mykeyword.lower()
     mydata = {"petCat":  mykeyword}
    
     mypet=mongo.db.pet.find(mydata)
