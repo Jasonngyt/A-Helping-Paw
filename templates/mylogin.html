@@ -9,12 +9,27 @@
 
         <!-- Image of Pet Bird. Display in laptop view, hide in mobile view -->
         <div class="mt-5 d-none d-md-block">
-            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="500" height="680">
+            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="520" height="720">
         </div>
 
         <div class="bg-light p-3 mt-5">
             <!--Form that display the particular of the user-->
             <form action="{{url_for('update_user')}}" method="POST">
+                
+                <div>
+                    <h3>My Login</h3>
+                </div><br>
+                
+                <!-- Flash message to tell user their particular updates successfully -->
+                <strong>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </strong>
                 
                 {% for num in user%}
                 <h5>
@@ -49,18 +64,6 @@
                     
                 </div>
                 {% endfor %}
-                <br>
-                
-                <!-- Flash message to tell user their particular updates successfully -->
-                <strong>
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-                </strong>
                 
             </form>
         </div>

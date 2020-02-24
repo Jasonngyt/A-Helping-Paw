@@ -12,15 +12,35 @@
         <form action="{{url_for('update_adv')}}" method="POST">
             
             <div>
-                    <h3>My Advertisement<br></h3>
-            </div>
+                    <h3>My Advertisement</h3>
+            </div><br>
+            
+             <!-- Display Flash Message for User 
+                1) No Advertisement. Prompt User to add Advertisment
+                2) Advertisment update succesfully
+                3) Advertisment add succesfully
+            -->
+            <strong>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                          {{ message }}
+                        {% endfor %}
+                        <div class = "mt-4 col-12-sm col-3-md">
+                            {% for num in user %}
+                                <button type="button" onclick="window.location.href='{{url_for('mylogin1', user_id=num._id)}}'" class="btn btn-primary mx-auto">Back to My Login</button>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </strong>
             
             {% for num in pet%}
             <div class="border">
                 
                 <h5>
                     <!-- Hide the user ID and advertisment ID to prevent user to amend it -->
-                    <input id="adv_id" name="adv_id" type="text" value='{{num._id}}' class="d-none"><br>
+                    <input id="adv_id" name="adv_id" type="text" value='{{num._id}}' class="d-none">
                     <input id="user_id" name="user_id" type="text" value='{{num.user_id}}' class="d-none">
 
                     <!-- Textbox to amend Pet Name -->
@@ -67,20 +87,6 @@
             </div>
             {% endfor %}
             
-            <br><br>
-            <!-- Display Flash Message for User 
-                1) No Advertisement. Prompt User to add Advertisment
-                2) Advertisment update succesfully
-            -->
-            <strong>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                          {{ message }}
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-            </strong>
         </form>
         
 

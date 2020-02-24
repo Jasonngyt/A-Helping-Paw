@@ -51,9 +51,16 @@
                 <!-- Textarea to key in description of the pet -->
                 <label>Description </label><br>
                 <textarea id="description" name="description" type="text" class="form-control" rows="5" required></textarea><br><br>
-
-                <!--Submit Button to add the new Advertisment-->
-                <button type="submit" name="action" class="btn btn-primary mx-auto">Add Advertisment</button>
+                
+                <div class="row justify-content-center">
+                    <!--Submit Button to add the new Advertisment-->
+                    <div class = "m-2 col-12-sm col-6-md">
+                        <button type="submit" name="action" class="btn btn-primary mx-auto">Add Advertisment</button>
+                    </div>
+                    <div class = "m-2 col-12-sm col-6-md">
+                        <button type="button" onclick="window.location.href='{{url_for('mylogin1', user_id=user_id)}}'" class="btn btn-primary mx-auto">Cancel</button>
+                    </div>
+                </div>
             </form>
         </div>
     </h5>

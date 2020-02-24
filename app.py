@@ -88,6 +88,7 @@ def add_adv(user_id):
 def insert_adv():
     mongo.db.pet.insert_one({"user_id": ObjectId(request.form.get('userID')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
     mypet1=mongo.db.pet.find({"user_id": ObjectId(request.form.get("userID"))})
+    flash('Advertisment Added Successfully.')
     return render_template("my_adv.html", pet=mypet1) 
 
 
@@ -133,7 +134,8 @@ def my_adv(user_id):
     mypet1=mongo.db.pet.find_one({"user_id":  ObjectId(user_id)})
     if not mypet1:
         flash('You do not have any existing Advertisment. Please go back to add new Advertisment.')
-        return render_template("my_adv.html", pet=mypet) 
+        myuser=mongo.db.user.find({"_id":  ObjectId(user_id)})
+        return render_template("my_adv.html", user=myuser) 
     else:
         return render_template("my_adv.html", pet=mypet)  
 
