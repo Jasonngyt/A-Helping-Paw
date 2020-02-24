@@ -59,12 +59,13 @@ def add_user():
 @app.route('/insert_user/', methods=['POST'])
 def insert_user():
     if request.method == 'POST':
+        userName = (request.form['userName']).capitalize()
         users = mongo.db.user
-        existing_user = users.find_one({'userName' : request.form['userName']})
+        existing_user = users.find_one({'userName' : userName})
         
         if existing_user is None:
-            mongo.db.user.insert_one({"userName":request.form.get('userName'), "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
-            myuser=mongo.db.user.find({"userName": request.form['userName']})
+            mongo.db.user.insert_one({"userName": userName, "userEmail": request.form.get('userEmail'), "userContact": request.form.get('userContact')} )
+            myuser=mongo.db.user.find({"userName": userName})
             return render_template("mylogin.html", user=myuser)
             
         flash('USER NAME ALREADY EXIST! PLEASE REGISTER WITH A DIFFERENT USER NAME.')
@@ -101,10 +102,11 @@ def login():
 # Retrieve the details of the user from MongoDB. Check if the user name is valid.
 @app.route('/mylogin', methods=['POST'])
 def mylogin():
-    myuser=mongo.db.user.find_one({"userName": request.form['login']})
+    userName = (request.form['login']).capitalize()
+    myuser=mongo.db.user.find_one({"userName": userName})
     
     if myuser:
-        myuser=mongo.db.user.find({"userName": request.form['login']})
+        myuser=mongo.db.user.find({"userName": userName})
         return render_template("mylogin.html", user=myuser)
     
     flash('INVALID USER NAME! PLEASE SIGN IN WITH A VALID USER NAME.')
@@ -162,6 +164,11 @@ def delete_adv2():
     return redirect(url_for('login'))
     
     
+@app.route('/mylogin1/<user_id>')
+def mylogin1(user_id):
+    myuser=mongo.db.user.find({"_id": ObjectId(user_id)})
+    return render_template("mylogin.html", user=myuser)
+
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

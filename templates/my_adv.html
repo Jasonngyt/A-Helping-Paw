@@ -11,13 +11,12 @@
         
         <form action="{{url_for('update_adv')}}" method="POST">
             
+            <div>
+                    <h3>My Advertisement<br></h3>
+            </div>
             
             {% for num in pet%}
             <div class="border">
-                
-                <div>
-                    <h3>My Advertisement<br></h3>
-                </div>
                 
                 <h5>
                     <!-- Hide the user ID and advertisment ID to prevent user to amend it -->
@@ -50,14 +49,22 @@
                 </h5>
             </div>
 
-            <!--Button for user to update their advertisment-->
-            <!--<button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class=" btn-lg btn-outline-dark">-->
-            <button type="submit" name="action" class="btn btn-primary mx-auto">Update Advertisement</button>
-
-            <!--Button for user to go to Delete Advertisement page-->
-            <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class="btn btn-primary mx-auto">Delete</button>
-            
-            <button type="button" onclick="window.location.href='{{url_for('mysearch')}}'" class="btn btn-primary mx-auto">Log Out</button>
+            <div class="row mb-5 justify-content-center">
+                <div class = "m-2 col-12-sm col-3-md">
+                    <!--Button for user to update their advertisment-->
+                    <!--<button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class=" btn-lg btn-outline-dark">-->
+                    <button type="submit" name="action" class="btn btn-primary mx-auto">Update Advertisement</button>
+                </div>
+                
+                <div class = "m-2 col-12-sm col-3-md">
+                    <!--Button for user to go to Delete Advertisement page-->
+                    <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class="btn btn-primary mx-auto">Delete</button>
+                </div>
+                
+                <div class = "m-2 col-12-sm col-3-md">
+                    <button type="button" onclick="window.location.href='{{url_for('mylogin1', user_id=num.user_id)}}'" class="btn btn-primary mx-auto">Back to My Login</button>
+                </div>
+            </div>
             {% endfor %}
             
             <br><br>
