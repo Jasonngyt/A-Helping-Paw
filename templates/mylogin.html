@@ -9,7 +9,7 @@
 
         <!-- Image of Pet Bird. Display in laptop view, hide in mobile view -->
         <div class="mt-5 d-none d-md-block">
-            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="520" height="720">
+            <image src="{{ url_for('static', filename='image/bird.jpg')}}" width="500" height="680">
         </div>
 
         <div class="bg-light p-3 mt-5">
@@ -49,19 +49,26 @@
                     <input id="myContact" name="myContact" type="tel" value={{num.userContact}} class="form-control" required><br>
                 </h5>
                 <div>
-                    <div class = "col-12-sm text-center col-6-md m-2">
-                        <!--Button for user to update their particular-->
-                        <button type="submit" name="action" class="btn btn-primary mx-auto">Update My Details</button>
+                    <div class = "row justify-content-center"> 
+                        <div class = "col-12-sm col-6-md m-2">
+                            <!--Button for user to update their particular-->
+                            <button type="submit" name="action" class="btn btn-primary mx-auto">Update My Details</button>
+                        </div>
+                        <div class = "col-12-sm col-6-md m-2">
+                            <!--Button for user to add in new Advertisement-->
+                            <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>
+                        </div>
                     </div>
-                    <div class = "col-12-sm text-center col-6-md m-2">
-                        <!--Button for user to add in new Advertisement-->
-                        <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>
+                    <div class = "row justify-content-center"> 
+                        <div class = "col-12-sm col-6-md m-2">
+                            <!--Button for user to view their Advertisement-->
+                            <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button>
+                        </div>
+                        <div class = "col-12-sm col-6-md m-2">
+                            <!--Button for user to Log Our-->
+                            <button type="button" class="btn btn-primary mx-auto" onclick="window.location.href='{{url_for('mysearch')}}'" style="width:250px" >Log Out</button>
+                        </div>
                     </div>
-                    <div class = "col-12-sm text-center col-6-md m-2">
-                        <!--Button for user to view their Advertisement-->
-                        <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">My Advertisement</button>
-                    </div>
-                    
                 </div>
                 {% endfor %}
                 

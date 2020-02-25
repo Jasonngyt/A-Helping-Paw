@@ -133,7 +133,7 @@ def my_adv(user_id):
     
     mypet1=mongo.db.pet.find_one({"user_id":  ObjectId(user_id)})
     if not mypet1:
-        flash('You do not have any existing Advertisment. Please go back to add new Advertisment.')
+        flash('You do not have any existing Advertisment. Please click Add Advertisment Button to add your first Advertisment or go back to My Login.')
         myuser=mongo.db.user.find({"_id":  ObjectId(user_id)})
         return render_template("my_adv.html", user=myuser) 
     else:
@@ -155,7 +155,8 @@ def update_adv():
 # Delete the Advertisment
 @app.route('/delete_adv/<adv_id>')
 def delete_adv(adv_id):
-    return render_template("deleteAdv.html",adv_id=adv_id) 
+    mypet=mongo.db.pet.find({"_id": ObjectId(adv_id)})
+    return render_template("deleteAdv.html",adv_id=adv_id, mypet=mypet ) 
     
     
     
@@ -165,7 +166,8 @@ def delete_adv2():
     mongo.db.pet.remove({'_id': ObjectId(adv_id)})
     return redirect(url_for('login'))
     
-    
+
+# Redirect back to My Login page
 @app.route('/mylogin1/<user_id>')
 def mylogin1(user_id):
     myuser=mongo.db.user.find({"_id": ObjectId(user_id)})

@@ -3,25 +3,35 @@
 {% block content %}
 
 
-<section id="signup" class="signup-section">
-    <div class="container d-flex justify-content-center p-3 mb-5">
-        <h3>
-            <!--Form to confirm delete advertisment-->
-            <form action="{{url_for('delete_adv2')}}" method="POST">
-
-                <!-- Hide the adv ID to prevent user to amend it -->
-                <div class="d-none">
-                    <input id="adv_id" name="adv_id" type="text" value={{adv_id}}><br>
-                </div>
-
-                <!-- Button to delete the advertisment -->
-                <div>
-                    <button type="submit" name="action" class="btn btn-primary mx-auto">Confirm Delete?</button>
-                </div>
-
-            </form>
-        </h3>
-    </div>
-</section>
+    <section id="signup" class="signup-section">
+        <div class="container d-flex justify-content-center p-3 mb-5">
+            <h3>
+    
+                <!--Form to confirm delete advertisment-->
+                <form action="{{url_for('delete_adv2')}}" method="POST">
+    
+                    <!-- Hide the adv ID to prevent user to amend it -->
+                    <div class="d-none">
+                        <input id="adv_id" name="adv_id" type="text" value={{adv_id}}><br>
+                    </div>
+                 
+                    
+                    <div class="row justify-content-center">
+                        <!-- Button to delete the advertisment -->
+                        <div class = "m-2">
+                            <button type="submit" name="action" class="btn btn-primary mx-auto">Confirm Delete?</button>
+                        </div>
+                        
+                        <!-- Button to cancel delete advertisment -->
+                        <div class = "m-2">
+                            {% for num in mypet %}
+                                <button type="button" onclick="window.location.href='{{url_for('my_adv', user_id=num.user_id)}}'" class="btn btn-primary mx-auto">No</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
+            </h3>
+        </div>
+    </section>
 
 {% endblock %}

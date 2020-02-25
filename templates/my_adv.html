@@ -26,9 +26,16 @@
                         {% for message in messages %}
                           {{ message }}
                         {% endfor %}
-                        <div class = "mt-4 col-12-sm col-3-md">
+                        <div class = "mt-4 col-12-sm row justify-content-center">
                             {% for num in user %}
-                                <button type="button" onclick="window.location.href='{{url_for('mylogin1', user_id=num._id)}}'" class="btn btn-primary mx-auto">Back to My Login</button>
+                                <div class = "col-12-sm col-6-md m-2">
+                                    <!--Button for user to add in new Advertisement-->
+                                    <button type="button" onclick="window.location.href='{{url_for('add_adv', user_id=num._id)}}'" class="btn btn-primary mx-auto">Add Advertisement</button>
+                                </div>
+                                <div class = "col-12-sm col-6-md m-2">
+                                    <!--Button for user to go back to My Login Page-->
+                                    <button type="button" onclick="window.location.href='{{url_for('mylogin1', user_id=num._id)}}'" class="btn btn-primary mx-auto">Back to My Login</button>
+                                </div>
                             {% endfor %}
                         </div>
                     {% endif %}
@@ -78,7 +85,7 @@
                 
                 <div class = "m-2 col-12-sm col-3-md">
                     <!--Button for user to go to Delete Advertisement page-->
-                    <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class="btn btn-primary mx-auto">Delete</button>
+                    <button type="button" onclick="window.location.href='{{url_for('delete_adv', adv_id=num._id)}}'" class="btn btn-primary mx-auto">Delete Advertisement</button>
                 </div>
                 
                 <div class = "m-2 col-12-sm col-3-md">
