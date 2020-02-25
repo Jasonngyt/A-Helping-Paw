@@ -162,9 +162,11 @@ def delete_adv(adv_id):
     
 @app.route('/delete_adv2/', methods=['POST'])
 def delete_adv2(): 
+    myuser=mongo.db.user.find({"_id": ObjectId(request.form.get("user_id"))})
     adv_id=request.form.get('adv_id')
     mongo.db.pet.remove({'_id': ObjectId(adv_id)})
-    return redirect(url_for('login'))
+    flash('Advertisment Deleted Successfully.')
+    return render_template("mylogin.html", user=myuser) 
     
 
 # Redirect back to My Login page
