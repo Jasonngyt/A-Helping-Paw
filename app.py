@@ -147,7 +147,7 @@ def update_adv():
     query = {'_id':ObjectId(request.form.get('adv_id'))}
     mongo.db.pet.update(query, {"user_id": ObjectId(request.form.get('user_id')), "petName": request.form.get('petName'), "petCat": request.form.get('petCat'), "gender": request.form.get('gender'), "color": request.form.get('color'), "age": request.form.get('age'), "description": request.form.get('description')} )
     mypet1=mongo.db.pet.find({"user_id": ObjectId(request.form.get("user_id"))})
-    flash('Advertisment Update Successfully.')
+    flash('Advertisment Updated Successfully.')
     return render_template("my_adv.html", pet=mypet1) 
       
       
