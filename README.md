@@ -36,7 +36,7 @@ https://nyt-animal-adoption.herokuapp.com
 
 The wireframe can be viewed in the link below:<br>
 
-https://drive.google.com/open?id=1v463MvTvPzKZSj44pPbHvT5X4nMv5XQm
+https://drive.google.com/file/d/1VdDOvf5N77-tyG-VdpeLwE94OJRHwZer/view?usp=sharing
 
 ### ER Diagram
 <img src = "Readme/image/ER_Diagram1.jpg">
